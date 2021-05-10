@@ -42,6 +42,50 @@ const TopFRont = (props) => {
         gsap.to(window, { duration: 2.5, scrollTo: "#three", ease: "elastic.out(.8, .4)" });
     }
 
+     useEffect(() => {
+        if (window.innerHeight > window.innerWidth) {
+            setShowIt(true)
+            setShowItBig(false)
+            openScroll()
+        } else {
+            setShowItBig(true)
+            setShowIt(false)
+        }
+
+        window.addEventListener('resize', function () {
+            openScroll()
+            if (window.innerHeight > window.innerWidth) {
+                setShowIt(true)
+                setShowItBig(false)
+            } else {
+                setShowItBig(true)
+                setShowIt(false)
+            }
+
+            // if (window.innerWidth <= 768) {
+            //     setShowIt(true)
+            //     setShowItBig(false)
+            // } else {
+            //     setShowItBig(true)
+            //     setShowIt(false)
+            // }
+        })
+
+
+        return () => {
+               window.removeEventListener('resize', function () {
+                   openScroll()
+                   if (window.innerHeight > window.innerWidth) {
+                       setShowIt(true)
+                       setShowItBig(false)
+                    } else {
+                        setShowItBig(true)
+                        setShowIt(false)
+                    }
+                })
+            }
+        }, [])
+
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
 
@@ -174,50 +218,6 @@ const TopFRont = (props) => {
         }
         // eslint-disable-next-line
     }, [])
-
-    useEffect(() => {
-        if (window.innerHeight > window.innerWidth) {
-            setShowIt(true)
-            setShowItBig(false)
-            openScroll()
-        } else {
-            setShowItBig(true)
-            setShowIt(false)
-        }
-
-        window.addEventListener('resize', function () {
-            openScroll()
-            if (window.innerHeight > window.innerWidth) {
-                setShowIt(true)
-                setShowItBig(false)
-            } else {
-                setShowItBig(true)
-                setShowIt(false)
-            }
-
-            // if (window.innerWidth <= 768) {
-            //     setShowIt(true)
-            //     setShowItBig(false)
-            // } else {
-            //     setShowItBig(true)
-            //     setShowIt(false)
-            // }
-        })
-
-
-        return () => {
-               window.removeEventListener('resize', function () {
-                   openScroll()
-                   if (window.innerHeight > window.innerWidth) {
-                       setShowIt(true)
-                       setShowItBig(false)
-                    } else {
-                        setShowItBig(true)
-                        setShowIt(false)
-                    }
-                })
-            }
-        }, [])
 
     useEffect(() => {
         if (props.introDone === true) {
