@@ -11,14 +11,13 @@ const TopFRont = (props) => {
     const DesignFrontRef = useRef()
     const DesignFrontRefSmall = useRef()
     const blackBox = useRef()
-    const navy = useRef()
     const [animation2, setAnimation2] = useState()
     const [animation3, setAnimation3] = useState()
     const [animationSmall, setAnimationSmall] = useState()
     const [menuPop, setMenuPop] = useState(false)
     const [running, setRunning] = useState(false)
-    const [showIt, setShowIt] = useState(false)
-    const [showItBig, setShowItBig] = useState(false)
+    const [showIt, setShowIt] = useState(true)
+    const [showItBig, setShowItBig] = useState(true)
     gsap.registerPlugin(ScrollToPlugin);
 
     const openScroll = () => {
@@ -240,7 +239,7 @@ const TopFRont = (props) => {
                 <div className={`blackBox ${showItBig ? null : `gone`}`} ref={blackBox}>
                 </div>  
                 <div className={`innermenu ${showItBig ? `big` : `gone`}`} ref={DesignFrontRef}>
-                    <div className={`navMenu ${menuPop ? 'navGrow' : null}`} ref={navy} onClick={(e) => e.stopPropagation()}>
+                    <div className={`navMenu ${menuPop ? 'navGrow' : null}`} onClick={(e) => e.stopPropagation()}>
                         <nav className="naver" onClick={openScroll}>
                             <ul>
                                 <li>WELCOME</li>
