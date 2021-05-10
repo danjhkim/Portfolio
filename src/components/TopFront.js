@@ -8,7 +8,6 @@ import blackboxing from "../images/fader.json"
 import lottie from 'lottie-web';
 
 const TopFRont = (props) => {
-    // const lottiePlayer = useRef()
     const DesignFrontRef = useRef()
     const DesignFrontRefSmall = useRef()
     const blackBox = useRef()
@@ -123,7 +122,6 @@ const TopFRont = (props) => {
             animationData: designFront,
             rendererSettings: {
                 preserveAspectRatio: 'none',
-                hideOnTransparent: true
             }
         })
 
@@ -135,7 +133,6 @@ const TopFRont = (props) => {
             animationData: designFrontSmall,
             rendererSettings: {
                 preserveAspectRatio: 'none',
-                hideOnTransparent: true
             }
         })
 
@@ -147,7 +144,6 @@ const TopFRont = (props) => {
             animationData: blackboxing,
             rendererSettings: {
                 preserveAspectRatio: 'none',
-                hideOnTransparent: true
             },
         })
 
