@@ -172,6 +172,7 @@ const TopFRont = (props) => {
             });
 
         }
+        // eslint-disable-next-line
     }, [])
 
     useEffect(() => {
