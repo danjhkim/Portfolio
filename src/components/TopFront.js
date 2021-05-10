@@ -139,6 +139,7 @@ const TopFRont = (props) => {
         setAnimation3(animation2)
         setAnimationSmall(animationSmall)
 
+        // eslint-disable-next-line
 
         return () => {
 
@@ -155,8 +156,23 @@ const TopFRont = (props) => {
                 }, wait);
 
             });
+
+
+            animationSmall.removeEventListener('complete', () => {
+                setRunning(false)
+                const wait = Math.floor(Math.random() * 4000) + 2000
+                setTimeout(() => {
+                    if (running) {
+                        return
+                    } else {
+                        setRunning(true)
+                        animationSmall.playSegments([138, 173], true)
+                    }
+                }, wait);
+            });
+
         }
-    }, [running])
+    }, [])
 
     useEffect(() => {
         if (window.innerHeight > window.innerWidth) {
@@ -186,7 +202,21 @@ const TopFRont = (props) => {
             //     setShowIt(false)
             // }
         })
-    }, [])
+
+
+        return () => {
+               window.removeEventListener('resize', function () {
+                   openScroll()
+                   if (window.innerHeight > window.innerWidth) {
+                       setShowIt(true)
+                       setShowItBig(false)
+                    } else {
+                        setShowItBig(true)
+                        setShowIt(false)
+                    }
+                })
+            }
+        }, [])
 
     useEffect(() => {
         if (props.introDone === true) {
