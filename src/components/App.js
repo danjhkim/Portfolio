@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Router } from 'react-router-dom';
 import gsap, { TweenMax } from "gsap";
 
-import Navbar from './Navbar'
 import TopFront from './TopFront'
 import history from '../history'
 
@@ -11,8 +10,11 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import front from '../images/forward.json'
 
 const App = () => {
+    window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+    }
+
     const lottieRef = useRef()
-    const [anime, setAnime] = useState()
     const [introDone, setIntroDone] = useState(false)
 
 
@@ -32,7 +34,6 @@ const App = () => {
             autoplay: false,
             animationData: front // the path to the animation json
         })
-        setAnime(animation)
 
         animation.playSegments([0, 88], true)
 
@@ -65,11 +66,10 @@ const App = () => {
     return (
         <>
             <div className="tester">
-                <div className="animation" ref={lottieRef} onClick={cancelIt}></div>
+                <div className="animation" ref={lottieRef} onClick={cancelIt} onWheel={cancelIt}></div>
             </div>
             < Router history={history} >
                 <div className="App">
-                    <Navbar />
                     <TopFront introDone={introDone} />
                 </div>
             </Router>

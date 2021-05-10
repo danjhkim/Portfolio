@@ -1,25 +1,48 @@
 import React, { useEffect, useRef, useState } from 'react'
-import gsap, { TweenMax } from "gsap";
+import gsap from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { create } from '@lottiefiles/lottie-interactivity';
-import * as LottiePlayer from '@lottiefiles/lottie-player';
-import designFront from "../images/cover1"
+import designFront from "../images/cover1.json"
+import designFrontSmall from "../images/cover1small.json"
 import blackboxing from "../images/fader.json"
 import lottie from 'lottie-web';
 
 const TopFRont = (props) => {
-    const lottiePlayer = useRef()
+    // const lottiePlayer = useRef()
     const DesignFrontRef = useRef()
+    const DesignFrontRefSmall = useRef()
     const blackBox = useRef()
     const navy = useRef()
     const [animation2, setAnimation2] = useState()
     const [animation3, setAnimation3] = useState()
+    const [animationSmall, setAnimationSmall] = useState()
     const [menuPop, setMenuPop] = useState(false)
     const [running, setRunning] = useState(false)
-    const [ranOnce, setRanOnce] = useState(true)
+    const [showIt, setShowIt] = useState(false)
+    const [showItBig, setShowItBig] = useState(false)
+    gsap.registerPlugin(ScrollToPlugin);
+
+    const openScroll = () => {
+        document.body.style.overflowY = "scroll";
+    }
+
+      const home = () => {
+        gsap.to(window, { duration: 2.5, scrollTo: "#home", ease: "elastic.out(.8, .4)" });
+    }
+
+    const bio = () => {
+        gsap.to(window, { duration: 2.5, scrollTo: "#one", ease: "elastic.out(.8, .4)" });
+    }
+
+    const samples = () => {
+        gsap.to(window, { duration: 2.5, scrollTo: "#two", ease: "elastic.out(.8, .4)" });
+    }
+
+    const contact = () => {
+        gsap.to(window, { duration: 2.5, scrollTo: "#three", ease: "elastic.out(.8, .4)" });
+    }
 
     useEffect(() => {
-        console.log(props.introDone)
         gsap.registerPlugin(ScrollTrigger);
 
         gsap.utils.toArray(".panel").forEach((panel, i) => {
@@ -36,46 +59,57 @@ const TopFRont = (props) => {
         //     duration: .5
         // });
 
-        create({
-            mode: 'scroll',
-            player: '#firstLottie',
-            actions: [
-                {
-                    visibility: [0, 1],
-                    type: 'seek',
-                    frames: [0, 50],
-                },
-            ],
-
-
-        });
+        // create({
+        //     mode: 'scroll',
+        //     player: '#firstLottie',
+        //     actions: [
+        //         {
+        //             visibility: [0, 1],
+        //             type: 'seek',
+        //             frames: [0, 50],
+        //         },
+        //     ],
+        // });
 
         const animation = lottie.loadAnimation({
-            container: DesignFrontRef.current, // the dom element that will contain the animation
+            container: DesignFrontRef.current,
             renderer: 'svg',
             loop: false,
             autoplay: false,
             animationData: designFront,
-            // the path to the animation json
             rendererSettings: {
-                preserveAspectRatio: 'none'
+                preserveAspectRatio: 'none',
+                hideOnTransparent: true
+            }
+        })
+
+        const animationSmall = lottie.loadAnimation({
+            container: DesignFrontRefSmall.current,
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            animationData: designFrontSmall,
+            rendererSettings: {
+                preserveAspectRatio: 'none',
+                hideOnTransparent: true
             }
         })
 
         const animation2 = lottie.loadAnimation({
-            container: blackBox.current, // the dom element that will contain the animation
+            container: blackBox.current,
             renderer: 'svg',
             loop: false,
             autoplay: false,
-            animationData: blackboxing, // the path to the animation json
+            animationData: blackboxing,
             rendererSettings: {
-                preserveAspectRatio: 'none'
+                preserveAspectRatio: 'none',
+                hideOnTransparent: true
             },
         })
 
         animation.addEventListener('complete', () => {
             setRunning(false)
-            const wait = Math.floor(Math.random() * 5000) + 2000
+            const wait = Math.floor(Math.random() * 4000) + 2000
             setTimeout(() => {
                 if (running) {
                     return
@@ -87,14 +121,71 @@ const TopFRont = (props) => {
 
         });
 
+        animationSmall.addEventListener('complete', () => {
+            setRunning(false)
+            const wait = Math.floor(Math.random() * 4000) + 2000
+            setTimeout(() => {
+                if (running) {
+                    return
+                } else {
+                    setRunning(true)
+                    animationSmall.playSegments([138, 173], true)
+                }
+            }, wait);
+
+        });
+
         setAnimation2(animation)
         setAnimation3(animation2)
+        setAnimationSmall(animationSmall)
+
 
         return () => {
-            animation.removeEventListener('complete', (e) => {
-                console.log(e);
+
+            animation.removeEventListener('complete', () => {
+                setRunning(false)
+                const wait = Math.floor(Math.random() * 4000) + 2000
+                setTimeout(() => {
+                    if (running) {
+                        return
+                    } else {
+                        setRunning(true)
+                        animation.playSegments([138, 173], true)
+                    }
+                }, wait);
+
             });
         }
+    }, [running])
+
+    useEffect(() => {
+        if (window.innerHeight > window.innerWidth) {
+            setShowIt(true)
+            setShowItBig(false)
+            openScroll()
+        } else {
+            setShowItBig(true)
+            setShowIt(false)
+        }
+
+        window.addEventListener('resize', function () {
+            openScroll()
+            if (window.innerHeight > window.innerWidth) {
+                setShowIt(true)
+                setShowItBig(false)
+            } else {
+                setShowItBig(true)
+                setShowIt(false)
+            }
+
+            // if (window.innerWidth <= 768) {
+            //     setShowIt(true)
+            //     setShowItBig(false)
+            // } else {
+            //     setShowItBig(true)
+            //     setShowIt(false)
+            // }
+        })
     }, [])
 
     useEffect(() => {
@@ -102,7 +193,6 @@ const TopFRont = (props) => {
 
             setTimeout(() => {
                 animation2.play()
-                setRanOnce(true)
             }, 2100)
 
             setTimeout(() => {
@@ -111,41 +201,57 @@ const TopFRont = (props) => {
 
             setTimeout(() => {
                 animation3.play()
+                animationSmall.play()
             }, 1500)
         }
-    }, [props.introDone])
+
+    }, [props.introDone, animation2, animation3, animationSmall])
 
     return (
-        <main>
-            <div className="menuFirst">
-                <div className="blackBox" ref={blackBox}>
-                </div>
-                <div className={`innermenu`} ref={DesignFrontRef}>
-                    <div className={`navMenu ${menuPop ? 'navGrow' : null}`} ref={navy}>
-                        <nav>
+        <main className="main" id="home">
+            <div className={`menuFirst ${showItBig ? null : `gone`}`}>
+                <div className={`blackBox ${showItBig ? null : `gone`}`} ref={blackBox}>
+                </div>  
+                <div className={`innermenu ${showItBig ? `big` : `gone`}`} ref={DesignFrontRef}>
+                    <div className={`navMenu ${menuPop ? 'navGrow' : null}`} ref={navy} onClick={(e) => e.stopPropagation()}>
+                        <nav className="naver" onClick={openScroll}>
                             <ul>
                                 <li>WELCOME</li>
-                                <li>BIO</li>
-                                <li>SAMPLES</li>
-                                <li>Contact ME</li>
+                                <li onClick={bio}>BIO</li>
+                                <li onClick={samples}>SAMPLES</li>
+                                <li onClick={contact}>CONTACT ME</li>
                             </ul>
-
                         </nav>
                     </div>
                     <div className={`boxShadow ${menuPop ? 'bigShadowanime' : null}`}></div>
                 </div>
             </div>
-
+            <div className={`smallScreen ${showItBig ?`gone` : null}`}>
+                <div className={`innermenu ${showIt ? `small` : `gone`}`} ref={DesignFrontRefSmall}>
+                    <div className="container">
+                        <input id="toggle" type="checkbox" />
+                        <label className="toggle-container" htmlFor="toggle">
+                            <span className="button-toggle"></span>
+                        </label>
+                        <nav className="nav">
+                            <div className="nav-item" onClick={home}>Dashboard</div>
+                            <div className="nav-item" onClick={bio}>History</div>
+                            <div className="nav-item" onClick={samples}>Statistics</div>
+                            <div className="nav-item" onClick={contact}>Settings</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
             <div className="panels">
-                <section className="panel white">
-                    two
+                <section className="panel one" id="one">
+                    one
                 </section>
-                <section className="panel purple">
+                <section className="panel purple" id="two">
                     three
                 </section>
-                <section className="panel green">
-                    <lottie-player id="firstLottie" ref={lottiePlayer} className="growForest" style={{ height: "100vh", width: "100vw" }} src="https://assets2.lottiefiles.com/packages/lf20_fx68d81z.json"
-                    ></lottie-player>
+                <section className="panel green" id="three">
+                    {/* <lottie-player id="firstLottie" ref={lottiePlayer} className="growForest" style={{ height: "100vh", width: "100vw" }} src="https://assets2.lottiefiles.com/packages/lf20_fx68d81z.json"
+                    ></lottie-player> */}
                 </section>
             </div>
         </main >
