@@ -92,7 +92,6 @@ const TopFRont = props => {
 		if (window.innerHeight > window.innerWidth) {
 			setShowIt(true);
 			setShowItBig(false);
-			openScroll();
 		} else {
 			setShowItBig(true);
 			setShowIt(false);

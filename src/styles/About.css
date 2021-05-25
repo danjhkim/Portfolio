@@ -640,6 +640,13 @@
 	}
 }
 
+@media screen and (max-width: 1440px) {
+	.child {
+		width: 20%;
+		margin-left: 2em;
+	}
+}
+
 @media screen and (max-width: 1280px) {
 	.title h3 {
 		font-size: 4rem;
