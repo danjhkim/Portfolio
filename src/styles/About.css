@@ -1,0 +1,987 @@
+@font-face {
+	font-family: 'Bungee';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../styles/fonts/bungee-v6-latin-regular.eot'); /* IE9 Compat Modes */
+	src: local(''),
+		url('../styles/fonts/bungee-v6-latin-regular.eot?#iefix')
+			format('embedded-opentype'),
+		/* IE6-IE8 */ url('../styles/fonts/bungee-v6-latin-regular.woff2')
+			format('woff2'),
+		/* Super Modern Browsers */
+			url('../styles/fonts/bungee-v6-latin-regular.woff') format('woff'),
+		/* Modern Browsers */ url('../styles/fonts/bungee-v6-latin-regular.ttf')
+			format('truetype'),
+		/* Safari, Android, iOS */
+			url('../styles/fonts/bungee-v6-latin-regular.svg#Bungee')
+			format('svg'); /* Legacy iOS */
+}
+
+.about {
+	font-family: 'Bungee Outline', Helvetica, sans-serif;
+	font-weight: 900;
+	margin: none;
+	width: 100%;
+	color: black;
+}
+
+.blockingCreep {
+	right: 10px;
+	top: 10px;
+	height: 100%;
+	width: 50%;
+	position: absolute;
+	z-index: -1;
+}
+
+.hero__content {
+	z-index: 101;
+	position: relative;
+	width: 100%;
+	background-color: #ffb800;
+}
+
+.titleStat h3 {
+	position: relative;
+}
+
+.secondPara {
+	margin-top: 10em;
+}
+
+.title h3 {
+	height: 2em;
+	margin: 0;
+	font-size: 200%;
+	font-weight: 900;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: black;
+}
+
+.hr1 {
+	margin-left: 0;
+}
+
+.hr2 {
+	margin-left: 0;
+}
+
+.transgrow {
+	-webkit-transition: all 2s ease-in-out; /* For Safari 3.1 to 6.0 */
+	transition: all 2s ease-in-out;
+	opacity: 0;
+	width: 0;
+}
+
+.title {
+	box-sizing: border-box;
+	padding: 0 1em;
+}
+
+.lowersection {
+	box-sizing: border-box;
+	padding: 0 1em;
+}
+
+.title2 h3 {
+	padding: 0;
+	height: 2em;
+	margin: 0;
+	margin-bottom: 0.5em;
+	font-weight: 900;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: black;
+}
+
+.reacter,
+.javascripter,
+.afterEffecter,
+.Figmater {
+	display: inline-block;
+	outline: none;
+	-webkit-text-stroke-width: 0px;
+}
+
+.title4 h3 {
+	padding: 0;
+	height: 1.5em;
+	margin: 0;
+	margin-top: 1em;
+	font-size: 300%;
+	font-weight: 900;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: black;
+}
+
+.title5 h3 {
+	padding: 0;
+	height: 1.5em;
+	margin: 0 auto;
+	margin-top: 1em;
+	font-size: 300%;
+	font-weight: 900;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: black;
+}
+
+.title3 h3 {
+	padding: 0;
+	height: 1.5em;
+	margin: 0;
+	margin-top: 1em;
+	font-size: 200%;
+	font-weight: 900;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: black;
+}
+
+.titleStat h3 {
+	padding: 0;
+	height: 1.5em;
+	margin: 0;
+	margin-top: 0.5em;
+	font-size: 600%;
+	font-weight: 900;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: black;
+	backface-visibility: hidden;
+}
+
+.box hr {
+	margin: 0;
+	padding: 0;
+}
+
+.textBox {
+	color: white;
+	font-family: 'Bungee', Helvetica, sans-serif;
+	width: 100%;
+	font-size: 80%;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: black;
+}
+
+.textBox span {
+	display: inline-block;
+}
+
+.textBoxLower {
+	-webkit-text-stroke-width: 0.5px;
+	-webkit-text-stroke-color: white;
+	margin-top: 3em;
+	color: black;
+	font-family: 'Bungee', Helvetica, sans-serif;
+	width: 100%;
+	font-size: 70%;
+}
+
+.leftSide {
+	width: 70%;
+}
+
+.middle {
+	display: flex;
+	width: 100%;
+	position: relative;
+	box-sizing: border-box;
+	padding: 0 1em;
+}
+
+.rightSide {
+	width: 30%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: flex;
+	justify-content: flex-end;
+	position: relative;
+}
+
+.rightSideFace {
+	width: 100%;
+	height: 100%;
+	background-image: url('../images/face.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	z-index: 9999;
+	position: relative;
+}
+
+.bottom {
+	display: flex;
+	justify-content: center;
+}
+
+.statement {
+	font-size: 1.5rem;
+	font-weight: 700;
+	font-family: 'Courier New', Courier, monospace;
+	width: 50%;
+	color: black;
+	width: 100%;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: black;
+	line-height: 2.5em;
+}
+
+.firstPara {
+	width: 100%;
+	margin-right: 2em;
+}
+
+.study {
+	float: right;
+	width: 25%;
+}
+
+.fourthPara p {
+	font-size: 2em;
+}
+
+.secondPara {
+	font-size: 3.5em;
+	width: 100%;
+	line-height: 1;
+	margin-bottom: 3em;
+}
+
+.SkillSpace {
+	display: block;
+	margin: 2000em 0;
+}
+
+.showKid {
+	width: 70%;
+}
+
+.child {
+	margin-right: 4em;
+	width: 15%;
+	opacity: 1;
+	float: right;
+}
+
+.stats {
+	width: 35%;
+	float: right;
+}
+
+.computer {
+	width: 35%;
+	float: right;
+}
+
+@keyframes slide {
+	0% {
+		background-position: left top;
+	}
+	25% {
+		background-position: right top;
+	}
+	50% {
+		background-position: right bottom;
+	}
+	75% {
+		background-position: left bottom;
+	}
+	100% {
+		background-position: left top;
+	}
+}
+
+/* media queries */
+/* NAV BAR */
+
+@media screen and (max-width: 3840px) {
+	.leftSide {
+		width: 70%;
+	}
+
+	.title h3 {
+		font-size: 400%;
+	}
+
+	.textBox {
+		font-size: 150%;
+	}
+
+	.textBoxLower {
+		font-size: 150%;
+	}
+
+	.blockingCreep {
+		right: 10px;
+		top: 10px;
+		width: 50%;
+		height: 100%;
+		right: 0;
+	}
+
+	.title2 h3 {
+		font-size: 200%;
+	}
+
+	.statement .title3 {
+		font-size: 300%;
+	}
+
+	.titleStat h3 {
+		font-size: 650%;
+	}
+
+	.secondPara2 {
+		font-size: 150%;
+	}
+
+	.firstParaSection {
+		font-size: 300%;
+		line-height: 2em;
+	}
+
+	.stats {
+		width: 34%;
+	}
+
+	.title4 h3 {
+		font-size: 600%;
+	}
+
+	.thirdPara {
+		font-size: 3em;
+		line-height: 1.4em;
+	}
+
+	.thirdPara2ndp {
+		margin-top: 4em;
+		font-size: 3.5em;
+		line-height: 1em;
+	}
+
+	.computer {
+		width: 30%;
+	}
+
+	.title5 h3 {
+		font-size: 600%;
+		margin-top: 3em;
+	}
+
+	.fourthPara {
+		font-size: 1.5em;
+		line-height: 3em;
+	}
+}
+
+@media screen and (max-width: 2048px) {
+	.title h3 {
+		font-size: 200%;
+	}
+
+	.textBox {
+		font-size: 85%;
+	}
+
+	.rightSide {
+		width: 30%;
+	}
+
+	.blockingCreep {
+		height: 100%;
+		width: 60%;
+	}
+
+	.textBoxLower {
+		font-size: 80%;
+	}
+
+	.title3 h3 {
+		font-size: 150%;
+	}
+	.firstPara {
+		font-size: 70%;
+	}
+	.firstParaSection {
+		line-height: 1.5em;
+	}
+
+	.titleStat h3 {
+		font-size: 6em;
+	}
+
+	.secondPara {
+		font-size: 3em;
+		line-height: 1.5em;
+	}
+
+	.title4 h3 {
+		font-size: 450%;
+	}
+
+	.thirdPara {
+		font-size: 210%;
+	}
+
+	.thirdPara2ndp {
+		font-size: 260%;
+	}
+
+	.title5 h3 {
+		font-size: 450%;
+	}
+
+	.fourthPara {
+		font-size: 105%;
+	}
+}
+
+@media screen and (max-width: 1920px) {
+	.textBox {
+		color: white;
+		font-family: 'Bungee', Helvetica, sans-serif;
+		width: 100%;
+		font-size: 0.8em;
+		-webkit-text-stroke-width: 1px;
+		-webkit-text-stroke-color: black;
+	}
+
+	.rightSide {
+		width: 30%;
+	}
+
+	.titleStat h3 {
+		font-size: 6.5em;
+	}
+
+	.title2 h3 {
+		font-size: 4rem;
+	}
+
+	.title3 h3 {
+		font-size: 1.2em;
+	}
+
+	.secondPara {
+		font-size: 3.5em;
+	}
+
+	.title h3 {
+		height: 2em;
+		margin: 0;
+		font-size: 4rem;
+		font-weight: 900;
+		-webkit-text-stroke-width: 1px;
+		-webkit-text-stroke-color: black;
+	}
+
+	.textBox p {
+		color: white;
+		font-family: 'Bungee', Helvetica, sans-serif;
+		width: 100%;
+		font-size: 2.1rem;
+		-webkit-text-stroke-width: 1px;
+		-webkit-text-stroke-color: black;
+	}
+	.textBoxLower {
+		-webkit-text-stroke-width: 0.5px;
+		-webkit-text-stroke-color: white;
+		margin-top: 3em;
+		color: black;
+		font-family: 'Bungee', Helvetica, sans-serif;
+		width: 100%;
+		font-size: 2.1rem;
+	}
+	.middle {
+		display: flex;
+		width: 100%;
+		position: relative;
+		box-sizing: border-box;
+		padding: 0 1em;
+	}
+	.blockingCreep {
+		right: 10px;
+		top: 10px;
+		height: 100%;
+		width: 50%;
+		position: absolute;
+		z-index: -1;
+	}
+
+	.stats {
+		width: 34%;
+		float: right;
+	}
+
+	.statement {
+		font-size: 1rem;
+		font-weight: 700;
+		font-family: 'Courier New', Courier, monospace;
+		width: 50%;
+		color: black;
+		width: 100%;
+		-webkit-text-stroke-width: 1px;
+		-webkit-text-stroke-color: black;
+		line-height: 2.5em;
+	}
+
+	.firstPara {
+		font-size: 3.1rem;
+		width: 100%;
+		margin-right: 1em;
+	}
+
+	.firstParaSection {
+		font-size: 2.1rem;
+		width: 100%;
+		margin-right: 2em;
+		line-height: 1.5em;
+	}
+
+	.title4 h3 {
+		margin-top: 5em;
+		font-size: 3.6rem;
+	}
+
+	.title5 h3 {
+		font-size: 3.6rem;
+	}
+
+	.thirdPara {
+		width: 100%;
+	}
+
+	.thirdPara p {
+		font-size: 2.1rem;
+		line-height: 1.4em;
+		width: 100%;
+	}
+
+	.thirdPara2ndp {
+		margin-top: 3em;
+		font-size: 2.1rem;
+		line-height: 1.5em;
+		width: 100%;
+	}
+
+	.computer {
+		width: 40%;
+		float: right;
+		margin: 0;
+		left: 0;
+		position: relative;
+	}
+
+	.fourthPara {
+		font-size: 1.05rem;
+	}
+}
+
+@media screen and (max-width: 1680px) {
+	.title h3 {
+		font-size: 5rem;
+	}
+
+	.textBox p {
+		font-size: 2rem;
+	}
+
+	.textBoxLower p {
+		font-size: 2rem;
+	}
+
+	.rightSide {
+		width: 30%;
+	}
+
+	.blockingCreep {
+		height: 100%;
+		width: 50%;
+	}
+
+	.title2 h3 {
+		font-size: 5rem;
+	}
+
+	.title3 h3 {
+		font-size: 150%;
+	}
+	.firstPara {
+		font-size: 70%;
+	}
+	.firstParaSection {
+		line-height: 1.5em;
+	}
+
+	.titleStat h3 {
+		font-size: 6em;
+	}
+
+	.secondPara {
+		font-size: 3em;
+		line-height: 1.5em;
+	}
+
+	.title4 h3 {
+		font-size: 450%;
+	}
+
+	.thirdPara {
+		font-size: 210%;
+	}
+
+	.thirdPara2ndp {
+		font-size: 260%;
+	}
+
+	.title5 h3 {
+		font-size: 450%;
+	}
+
+	.fourthPara {
+		font-size: 105%;
+	}
+}
+
+@media screen and (max-width: 1280px) {
+	.title h3 {
+		font-size: 4rem;
+	}
+
+	.textBox p {
+		font-size: 1.6rem;
+	}
+
+	.textBoxLower p {
+		font-size: 1.6rem;
+	}
+
+	.blockingCreep {
+		height: 90%;
+		width: 60%;
+	}
+
+	.title2 h3 {
+		font-size: 4rem;
+	}
+
+	.title3 h3 {
+		font-size: 120%;
+	}
+
+	.firstParaSection {
+		line-height: 1.5em;
+		font-size: 2rem;
+	}
+
+	.titleStat h3 {
+		font-size: 6rem;
+	}
+
+	.secondPara {
+		font-size: 3rem;
+		line-height: 1.5em;
+	}
+
+	.stats {
+		width: 44%;
+	}
+
+	.title4 h3 {
+		font-size: 3.6rem;
+	}
+
+	.thirdPara p {
+		font-size: 2rem;
+	}
+
+	.thirdPara2ndp {
+		font-size: 2rem;
+	}
+
+	.title5 h3 {
+		font-size: 3.6rem;
+	}
+
+	.fourthPara {
+		font-size: 1rem;
+	}
+
+	.child {
+		margin-left: 3em;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.textBox p {
+		font-size: 1.3rem;
+	}
+
+	.textBoxLower p {
+		font-size: 1.3rem;
+	}
+
+	.blockingCreep {
+		height: 90%;
+		width: 70%;
+	}
+
+	.title3 h3 {
+		font-size: 100%;
+	}
+
+	.firstParaSection {
+		line-height: 1.5em;
+		font-size: 1.5rem;
+	}
+	.titleStat h3 {
+		font-size: 350%;
+	}
+
+	.secondPara {
+		font-size: 1.5rem;
+	}
+
+	.stats {
+		width: 34%;
+	}
+
+	.title4 h3 {
+		font-size: 3rem;
+	}
+
+	.thirdPara p {
+		font-size: 72%;
+	}
+	.thirdPara2ndp {
+		font-size: 150%;
+	}
+
+	.title5 h3 {
+		font-size: 3rem;
+	}
+
+	.fourthPara {
+		font-size: 75%;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.child {
+		width: 30%;
+		margin-left: 6rem;
+	}
+
+	.stats {
+		width: 45%;
+	}
+
+	.study {
+		width: 45%;
+	}
+}
+
+@media screen and (max-width: 720px) {
+	.showKid {
+		width: 100%;
+	}
+
+	.child {
+		float: none;
+		margin: 0 auto;
+	}
+
+	.textBox p {
+		font-size: 1.1rem;
+	}
+
+	.textBoxLower p {
+		font-size: 1.1rem;
+	}
+
+	.firstParaSection {
+		font-size: 1.7em;
+	}
+
+	.child {
+		width: 30%;
+		margin-left: 6rem;
+	}
+
+	.computer {
+		width: 60%;
+	}
+
+	.stats {
+		width: 100%;
+	}
+
+	.study {
+		width: 45%;
+	}
+	.thirdPara {
+		font-size: 1.65rem;
+	}
+
+	.thirdPara2ndp {
+		font-size: 1.188rem;
+	}
+
+	.fourthPara {
+		font-size: 0.6rem;
+	}
+}
+
+@media screen and (max-width: 560px) {
+	.title h3 {
+		font-size: 2rem;
+	}
+
+	.title2 h3 {
+		font-size: 2rem;
+	}
+
+	.rightSide {
+		display: none;
+	}
+
+	.leftSide {
+		width: 100%;
+	}
+
+	.title,
+	.middle,
+	.lowersection {
+		padding: 0 0.3em;
+	}
+}
+
+@media screen and (max-width: 540px) {
+	.textBox p {
+		font-size: 0.9rem;
+	}
+
+	.textBoxLower p {
+		font-size: 0.9rem;
+	}
+
+	.firstParaSection {
+		font-size: 1.3em;
+	}
+
+	.secondPara2 {
+		font-size: 1.8rem;
+	}
+	.child {
+		width: 30%;
+		margin-left: 6rem;
+	}
+
+	.computer {
+		width: 60%;
+	}
+
+	.stats {
+		width: 80%;
+		margin: 0 auto;
+		float: none;
+	}
+
+	.study {
+		width: 45%;
+	}
+	.thirdPara {
+		font-size: 1.255rem;
+	}
+
+	.thirdPara2ndp {
+		font-size: 0.9rem;
+	}
+
+	.fourthPara {
+		font-size: 0.45rem;
+	}
+
+	.rightSide {
+		width: 50%;
+	}
+}
+
+@media screen and (max-width: 454px) {
+	.child {
+		margin-right: 2rem;
+	}
+
+	.stats {
+		width: 70%;
+	}
+}
+
+@media screen and (max-width: 428px) {
+	.textBox p {
+		font-size: 0.7rem;
+	}
+
+	.textBoxLower p {
+		font-size: 0.7rem;
+	}
+
+	.leftSide {
+		width: 90%;
+	}
+
+	.rightSide {
+		width: 100%;
+	}
+
+	.rightSideFace {
+		width: 100%;
+	}
+
+	.firstParaSection {
+		font-size: 1.3em;
+	}
+
+	.secondPara2 {
+		font-size: 1.8rem;
+	}
+	.child {
+		width: 30%;
+		margin-left: 6rem;
+	}
+
+	.computer {
+		width: 60%;
+	}
+
+	.stats {
+		width: 60%;
+	}
+
+	.study {
+		width: 45%;
+	}
+	.thirdPara {
+		font-size: 1.255rem;
+	}
+
+	.thirdPara2ndp {
+		font-size: 0.9rem;
+	}
+
+	.fourthPara {
+		font-size: 0.45rem;
+	}
+
+	.rightSide {
+		width: 50%;
+	}
+}
+
+@media screen and (max-width: 360px) {
+	.showKid {
+		width: 100%;
+	}
+
+	.child {
+		float: none;
+		margin: 0 auto;
+	}
+}
