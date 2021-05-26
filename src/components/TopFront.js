@@ -1,11 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react';
-import gsap, { TweenMax, ScrollToPlugin, ScrollTrigger } from 'gsap/all';
+import gsap, {
+	TweenMax,
+	ScrollToPlugin,
+	ScrollTrigger,
+	TimelineMax,
+} from 'gsap/all';
 import { CustomEase } from 'gsap/CustomEase';
 import designFront from '../images/cover1.json';
 import designFrontSmall from '../images/cover1small.json';
 import blackboxing from '../images/fader.json';
 import lottie from 'lottie-web';
 import burger from '../images/burger.json';
+
+// icons
+import homeicon from '../images/icons/home.svg';
+import foldericon from '../images/icons/folder.svg';
+import infoicon from '../images/icons/info.svg';
+import profileicon from '../images/icons/profile.svg';
 
 import About from '../components/About';
 
@@ -45,12 +56,14 @@ const TopFRont = props => {
 		setScrollBounce(
 			gsap.to(window, { duration: 1.5, scrollTo: '#home', ease: 'hop' }),
 		);
+		setChecked(false);
 		showArrowDown();
 	};
 
 	const bio = () => {
 		setScrollBounce(
 			gsap.to(window, { duration: 1.5, scrollTo: '#one', ease: 'hop' }),
+			setChecked(false),
 		);
 		showArrowUp();
 		showArrowDown();
@@ -59,6 +72,7 @@ const TopFRont = props => {
 	const samples = () => {
 		setScrollBounce(
 			gsap.to(window, { duration: 1.5, scrollTo: '#two', ease: 'hop' }),
+			setChecked(false),
 		);
 		showArrowUp();
 		showArrowDown();
@@ -71,6 +85,7 @@ const TopFRont = props => {
 				scrollTo: '#three',
 				ease: 'hopBottom',
 			}),
+			setChecked(false),
 		);
 		showArrowUp();
 		showArrowDown();
@@ -291,6 +306,21 @@ const TopFRont = props => {
 	}, [props.introDone, animation2, animation3, animationSmall]);
 
 	useEffect(() => {
+		//SCREEN MENU
+		const staggermenuitems = new TimelineMax({ paused: true });
+		// this ensure it doesnt automatically start.
+
+		staggermenuitems
+			.to('.stagger', { autoAlpha: 1, duration: 0 })
+			.staggerFromTo(
+				'.stagger li',
+				0.2,
+				{ y: 50, opacity: 0 },
+				{ y: 0, opacity: 1, ease: 'Power2.easeOut' },
+				0.1,
+			);
+		//after showing it staggers the items on the menu
+
 		if (props.introDone === true) {
 			if (checked) {
 				burgerPlay.setDirection(1);
@@ -300,13 +330,13 @@ const TopFRont = props => {
 					opacity: 1,
 					ease: 'power2.out',
 				});
+				staggermenuitems.play(0);
 			} else if (!checked) {
 				burgerPlay.setDirection(-1);
 				burgerPlay.play();
 				TweenMax.to('.smallMenuErase', {
 					x: -500,
 					opacity: 0,
-					delay: 0.3,
 					ease: 'power2.out',
 				});
 			}
@@ -315,7 +345,6 @@ const TopFRont = props => {
 
 	const cancelScroll = () => {
 		if (scrollBounce) {
-			console.log('its working');
 			scrollBounce.kill();
 			setScrollBounce(null);
 		}
@@ -345,16 +374,36 @@ const TopFRont = props => {
 						<nav className='naver' onClick={openScroll}>
 							<ul>
 								<li className='hvr-grow' onClick={home}>
-									WELCOME
+									<img
+										src={homeicon}
+										alt='Home'
+										className='imagebox'
+									/>
+									<span>WELCOME</span>
 								</li>
 								<li className='hvr-grow' onClick={bio}>
-									BIO
+									<img
+										src={infoicon}
+										alt='biography'
+										className='imagebox'
+									/>
+									<span>BIO</span>
 								</li>
 								<li className='hvr-grow' onClick={samples}>
-									SAMPLES
+									<img
+										src={foldericon}
+										className='imagebox'
+										alt='portofolio'
+									/>
+									<span>SAMPLES</span>
 								</li>
 								<li className='hvr-grow' onClick={contact}>
-									CONTACT
+									<img
+										src={profileicon}
+										alt='contact'
+										className='imagebox'
+									/>
+									<span>CONTACT</span>
 								</li>
 							</ul>
 						</nav>
@@ -378,19 +427,39 @@ const TopFRont = props => {
 					<div
 						className={`navMenu smallMenuErase`}
 						onClick={e => e.stopPropagation()}>
-						<nav className='naver' onClick={openScroll}>
+						<nav className='naver stagger' onClick={openScroll}>
 							<ul>
 								<li className='hvr-grow' onClick={home}>
-									WELCOME
+									<img
+										src={homeicon}
+										alt='home'
+										className='imagebox'
+									/>
+									<span>WELCOME</span>
 								</li>
 								<li className='hvr-grow' onClick={bio}>
-									BIO
+									<img
+										src={infoicon}
+										alt='biography'
+										className='imagebox'
+									/>
+									<span>BIO</span>
 								</li>
 								<li className='hvr-grow' onClick={samples}>
-									SAMPLES
+									<img
+										src={foldericon}
+										alt='portofolio'
+										className='imagebox'
+									/>
+									<span>SAMPLES</span>
 								</li>
 								<li className='hvr-grow' onClick={contact}>
-									CONTACT
+									<img
+										src={infoicon}
+										alt='contact'
+										className='imagebox'
+									/>
+									<span>CONTACT</span>
 								</li>
 							</ul>
 						</nav>
@@ -403,13 +472,13 @@ const TopFRont = props => {
 					<About />
 				</section>
 				<section className='panel black' id='two'>
-					TEST
+					<div className='wrapper'>two</div>
 				</section>
 				<section className='panel yellow' id='three'>
-					three
+					<div className='wrapper'>three</div>
 				</section>
 				<section className='panel black' id='four'>
-					BYE! Vecteezy.com
+					<div className='wrapper'>four</div>
 				</section>
 				<div className='arrow bounce'></div>
 			</div>

@@ -188,7 +188,7 @@
 }
 
 .rightSide {
-	width: 30%;
+	width: 10em;
 	background-repeat: no-repeat;
 	background-size: cover;
 	display: flex;
@@ -310,10 +310,11 @@
 
 	.blockingCreep {
 		right: 10px;
-		top: 10px;
-		width: 50%;
-		height: 100%;
-		right: 0;
+		top: 4%;
+		height: 15%;
+		width: 60%;
+		position: absolute;
+		z-index: -1;
 	}
 
 	.title2 h3 {
@@ -385,10 +386,13 @@
 	}
 
 	.blockingCreep {
-		height: 100%;
-		width: 60%;
+		right: 10px;
+		top: 3%;
+		height: 13%;
+		width: 65%;
+		position: absolute;
+		z-index: -1;
 	}
-
 	.textBoxLower {
 		font-size: 80%;
 	}
@@ -498,11 +502,20 @@
 	}
 	.blockingCreep {
 		right: 10px;
-		top: 10px;
-		height: 100%;
+		top: 3%;
+		height: 15%;
 		width: 50%;
 		position: absolute;
 		z-index: -1;
+	}
+
+	.wrapper {
+		margin: 0 auto;
+
+		max-width: 1600px; /* 2 */
+
+		padding-right: 0.5em; /* 3 */
+		padding-left: 0.5em; /* 3 */
 	}
 
 	.stats {
@@ -592,8 +605,12 @@
 	}
 
 	.blockingCreep {
-		height: 100%;
-		width: 50%;
+		right: 10px;
+		top: 3%;
+		height: 12%;
+		width: 65%;
+		position: absolute;
+		z-index: -1;
 	}
 
 	.title2 h3 {
@@ -661,8 +678,12 @@
 	}
 
 	.blockingCreep {
-		height: 90%;
-		width: 60%;
+		right: 10px;
+		top: 3%;
+		height: 11%;
+		width: 65%;
+		position: absolute;
+		z-index: -1;
 	}
 
 	.title2 h3 {
@@ -726,8 +747,12 @@
 	}
 
 	.blockingCreep {
-		height: 90%;
-		width: 70%;
+		right: 10px;
+		top: 5%;
+		height: 13%;
+		width: 65%;
+		position: absolute;
+		z-index: -1;
 	}
 
 	.title3 h3 {
@@ -767,6 +792,17 @@
 
 	.fourthPara {
 		font-size: 75%;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.blockingCreep {
+		right: 10px;
+		top: 4%;
+		height: 14%;
+		width: 70%;
+		position: absolute;
+		z-index: -1;
 	}
 }
 
@@ -834,6 +870,14 @@
 	.fourthPara {
 		font-size: 0.6rem;
 	}
+	.blockingCreep {
+		right: 10px;
+		top: 3%;
+		height: 11%;
+		width: 70%;
+		position: absolute;
+		z-index: -1;
+	}
 }
 
 @media screen and (max-width: 560px) {
@@ -857,6 +901,15 @@
 	.middle,
 	.lowersection {
 		padding: 0 0.3em;
+	}
+
+	.blockingCreep {
+		right: 10px;
+		top: 2%;
+		height: 11%;
+		width: 65%;
+		position: absolute;
+		z-index: -1;
 	}
 }
 

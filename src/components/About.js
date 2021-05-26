@@ -1,10 +1,5 @@
 import React from 'react';
-import gsap, {
-	TweenMax,
-	ScrollTrigger,
-	TimelineMax,
-	TextPlugin,
-} from 'gsap/all';
+import gsap, { TweenMax, ScrollTrigger, TextPlugin } from 'gsap/all';
 
 import lottie from 'lottie-web';
 
@@ -151,7 +146,7 @@ class About extends React.Component {
 		TweenMax.to('.study', 0, { opacity: 0, x: 200 });
 		TweenMax.to('.fourthPara p', 0, { opacity: 0, x: -200 });
 
-		TweenMax.to('.rightSideFace', 0, { x: 500, opacity: 0 });
+		// TweenMax.to('.rightSideFace', 0, { x: 500, opacity: 0 });
 
 		gsap.registerPlugin(ScrollTrigger);
 		gsap.registerPlugin(TextPlugin);
@@ -215,8 +210,8 @@ class About extends React.Component {
 		});
 
 		ScrollTrigger.create({
-			trigger: '.secondPara2',
-			start: 'top 30%',
+			trigger: '.secondPara',
+			start: 'top 50%',
 			onEnter: () => stats.play(),
 		});
 
@@ -250,26 +245,26 @@ class About extends React.Component {
 			},
 		});
 
-		const tlmenu = new TimelineMax();
+		// const tlmenu = new TimelineMax();
 
-		tlmenu
-			.to('.rightSideFace', 1, { x: '30%', opacity: 1, delay: 1 })
-			.to('.rightSideFace', 0.2, { rotate: 5 })
-			.to('.rightSideFace', 0.2, { rotate: -5 })
-			.to('.rightSideFace', 0.2, { rotate: 5 })
-			.to('.rightSideFace', 0.2, { rotate: -5 })
-			.to('.rightSideFace', 0.2, { rotate: 0 })
-			.to('.rightSideFace', 0.2, { rotate: -5 })
-			.to('.rightSideFace', 0.2, { rotate: 0 })
-			.to('.rightSideFace', 0.2, { rotate: -5 })
-			.to('.rightSideFace', 0.2, { rotate: 0 })
-			.to('.rightSideFace', 0.2, { x: 500, opacity: 0 });
+		// tlmenu
+		// 	.to('.rightSideFace', 1, { x: '30%', opacity: 1, delay: 1 })
+		// 	.to('.rightSideFace', 0.2, { rotate: 5 })
+		// 	.to('.rightSideFace', 0.2, { rotate: -5 })
+		// 	.to('.rightSideFace', 0.2, { rotate: 5 })
+		// 	.to('.rightSideFace', 0.2, { rotate: -5 })
+		// 	.to('.rightSideFace', 0.2, { rotate: 0 })
+		// 	.to('.rightSideFace', 0.2, { rotate: -5 })
+		// 	.to('.rightSideFace', 0.2, { rotate: 0 })
+		// 	.to('.rightSideFace', 0.2, { rotate: -5 })
+		// 	.to('.rightSideFace', 0.2, { rotate: 0 })
+		// 	.to('.rightSideFace', 0.2, { x: 500, opacity: 0 });
 
-		ScrollTrigger.create({
-			animation: tlmenu,
-			trigger: '.title',
-			start: 'top 50%',
-		});
+		// ScrollTrigger.create({
+		// 	animation: tlmenu,
+		// 	trigger: '.title',
+		// 	start: 'top 50%',
+		// });
 	}
 
 	hobbies = () => {
@@ -410,193 +405,207 @@ class About extends React.Component {
 			<div className='about'>
 				<div className='hero__content'>
 					<div className='bio'>
-						<div className='title'>
-							<h3>BIO</h3>
-							<hr className='transgrow hr1' />
+						<div
+							className='blockingCreep'
+							ref={this.blockingRef}></div>
+						<div className='rightSide'>
+							<div className='rightSideFace'></div>
 						</div>
-						<div className='middle'>
-							<div
-								className='blockingCreep'
-								ref={this.blockingRef}></div>
-							<div className='leftSide'>
-								<div className='textBox'>
-									<p>
-										<span>
-											Hi, I'm Daniel, an aspiring Web
-											Developer.
-										</span>
-										<br />
-										<span>
-											Always wanting to learn, and aquire
-											new skills,
-										</span>
-										<br />
-										<span>
-											I enjoy spending my time on fixing
-											little details and
-										</span>
-										<span>
-											optimizing apps, that I have
-											created!
-										</span>
-									</p>
-								</div>
-								<div className='textBoxLower'>
-									<p>
-										This page was created with React, After
-										Effects, and Gsap.
-									</p>
-									<hr className='transgrow hr2' />
-								</div>
+						<div className='wrapper'>
+							<div className='title'>
+								<h3>BIO</h3>
+								<hr className='transgrow hr1' />
 							</div>
-
-							<div className='rightSide'>
-								<div className='rightSideFace'></div>
-							</div>
-						</div>
-					</div>
-					<div className='lowersection'>
-						<div className='title2'>
-							<h3>Continued....</h3>
-						</div>
-						<div className='bottom'>
-							<div className='statement'>
-								<div className='title3'>
-									<h3>History.</h3>
-								</div>
-								<div className='firstPara'>
-									<div className='firstParaSection'>
-										<div
-											className='child '
-											ref={this.childRef}></div>
-
-										<p className='showKid'>
-											As a kid, I’ve always been intrigued
-											with technology. Growing up with an
-											uncle who is in the industry, I was
-											introduced to computers at a very
-											early age. Always tinkering around
-											and trying to build, fix, and
-											customize my computer, I became
-											interested in web development during
-											my youth. Unfortunately, life had
-											other plans and my web development
-											took a backseat to ebb and flow of
-											time.
-										</p>
-										<p className='hiatusP'>
-											After a long hiatus in my
-											development as a programmer, I
-											recently have sought to change the
-											direction of my career, and
-											reignited my passion for
-											programming...
-										</p>
-									</div>
-								</div>
-								<div className='titleStat'>
-									<h3>Skillset.</h3>
-								</div>
-								<br />
-								<br />
-								<br />
-								<br />
-								<div className='secondPara'>
-									<div
-										className='stats'
-										ref={this.videoRef}></div>
-									<p className='secondPara2'>
-										My primary focus has been on frontend
-										web development. Cultivating my growth
-										with languages, software, and{' '}
-										<span className='startTriggering'>
-											libraries{' '}
-										</span>
-										such as{' '}
-										<span
-											className='javascripter'
-											style={{
-												color: 'yellow',
-											}}>
-											Javascript
-										</span>
-										,
-										<span
-											className='reacter'
-											style={{
-												color: 'lightskyblue',
-											}}>
-											{' '}
-											React
-										</span>
-										,{' '}
-										<span
-											className='afterEffecter'
-											style={{
-												color: 'navy',
-											}}>
-											After Effects
-										</span>
-										, and{' '}
-										<span
-											className='Figmater'
-											style={{
-												color: 'red',
-											}}>
-											Figma
-										</span>
-										. <br />
-										<br />
-										<span className='iamCurrently'>
-											I am currently in the process of
-											continously augmenting my skillset,
-											to further myself as a developer!
-										</span>
-									</p>
-								</div>
-								<div className='title4'>
-									<h3> </h3>
-								</div>
-								<div className='thirdPara'>
-									<div
-										className='computer '
-										ref={this.computerRef}></div>
-									<p>
-										Capable of producing modest web
-										applications, I still consider myself a
-										new student to the world of programming.
-										I realize that being a developer is an
-										everlasting pursuit of knowledge and
-										utilization of knowledge. I believe the
-										next step for me is, pursuing an entry
-										level position within the industry.
-									</p>
-								</div>
-								<p className='thirdPara2ndp'>
-									Seeking to secure a full-time position in
-									your office to further develop my work
-									experience. I am confident in my abilities
-									and also am an adept student.
-								</p>
-								<div className='lastSection'>
-									<div className='title5'>
-										<h3>Hobbies.</h3>
-									</div>
-									<div className='fourthPara'>
-										<div
-											className='study '
-											ref={this.studyRef}></div>
+							<div className='middle'>
+								<div className='leftSide'>
+									<div className='textBox'>
 										<p>
-											When I’m not writing and nitpicking
-											at code, I'll most likely be working
-											out,hanging out with my dog - I like
-											turtles, reading fantasy novels
-											(when's the next KingKiller
-											Chronicle book coming out?!), or
-											watching Twitch! I'll occasionally
-											game, and have started gardening. Go
-											lettuce!
+											<span>
+												Hi, I'm Daniel, an aspiring Web
+												Developer.
+											</span>
+											<br />
+											<span>
+												Always wanting to learn, and
+												aquire new skills,
+											</span>
+											<br />
+											<span>
+												I enjoy spending my time on
+												fixing little details and
+											</span>
+											<span>
+												optimizing apps, that I have
+												created!
+											</span>
 										</p>
+									</div>
+									<div className='textBoxLower'>
+										<p>
+											This page was created with React,
+											After Effects, and Gsap.
+										</p>
+										<hr className='transgrow hr2' />
+									</div>
+								</div>
+							</div>
+
+							<div className='lowersection'>
+								<div className='title2'>
+									<h3>Continued....</h3>
+								</div>
+								<div className='bottom'>
+									<div className='statement'>
+										<div className='title3'>
+											<h3>History.</h3>
+										</div>
+										<div className='firstPara'>
+											<div className='firstParaSection'>
+												<div
+													className='child '
+													ref={this.childRef}></div>
+
+												<p className='showKid'>
+													As a kid, I’ve always been
+													intrigued with technology.
+													Growing up with an uncle who
+													is in the industry, I was
+													introduced to computers at a
+													very early age. Always
+													tinkering around and trying
+													to build, fix, and customize
+													my computer, I became
+													interested in web
+													development during my youth.
+													Unfortunately, life had
+													other plans and my web
+													development took a backseat
+													to ebb and flow of time.
+												</p>
+												<p className='hiatusP'>
+													After a long hiatus in my
+													development as a programmer,
+													I recently have sought to
+													change the direction of my
+													career, and reignited my
+													passion for programming...
+												</p>
+											</div>
+										</div>
+										<div className='titleStat'>
+											<h3>Skillset.</h3>
+										</div>
+										<br />
+										<br />
+										<br />
+										<br />
+										<div className='secondPara'>
+											<div
+												className='stats'
+												ref={this.videoRef}></div>
+											<p className='secondPara2'>
+												My primary focus has been on
+												frontend web development.
+												Cultivating my growth with
+												languages, software, and{' '}
+												<span className='startTriggering'>
+													libraries{' '}
+												</span>
+												such as{' '}
+												<span
+													className='javascripter'
+													style={{
+														color: 'yellow',
+													}}>
+													Javascript
+												</span>
+												,
+												<span
+													className='reacter'
+													style={{
+														color: 'lightskyblue',
+													}}>
+													{' '}
+													React
+												</span>
+												,{' '}
+												<span
+													className='afterEffecter'
+													style={{
+														color: 'navy',
+													}}>
+													After Effects
+												</span>
+												, and{' '}
+												<span
+													className='Figmater'
+													style={{
+														color: 'red',
+													}}>
+													Figma
+												</span>
+												. <br />
+												<br />
+												<span className='iamCurrently'>
+													I am currently in the
+													process of continously
+													augmenting my skillset, to
+													further myself as a
+													developer!
+												</span>
+											</p>
+										</div>
+										<div className='title4'>
+											<h3> </h3>
+										</div>
+										<div className='thirdPara'>
+											<div
+												className='computer '
+												ref={this.computerRef}></div>
+											<p>
+												Capable of producing modest web
+												applications, I still consider
+												myself a new student to the
+												world of programming. I realize
+												that being a developer is an
+												everlasting pursuit of knowledge
+												and utilization of knowledge. I
+												believe the next step for me is,
+												pursuing an entry level position
+												within the industry.
+											</p>
+										</div>
+										<p className='thirdPara2ndp'>
+											Seeking to secure a full-time
+											position in your office to further
+											develop my work experience. I am
+											confident in my abilities and also
+											am an adept student.
+										</p>
+										<div className='lastSection'>
+											<div className='title5'>
+												<h3>Hobbies.</h3>
+											</div>
+											<div className='fourthPara'>
+												<div
+													className='study '
+													ref={this.studyRef}></div>
+												<p>
+													When I’m not writing and
+													nitpicking at code, I'll
+													most likely be working
+													out,hanging out with my dog
+													- I like turtles, reading
+													fantasy novels (when's the
+													next KingKiller Chronicle
+													book coming out?!), or
+													watching Twitch! I'll
+													occasionally game, and have
+													started gardening. Go
+													lettuce!
+												</p>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
