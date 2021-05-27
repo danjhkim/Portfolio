@@ -195,7 +195,7 @@ const TopFRont = props => {
 	}, []);
 
 	useEffect(() => {
-		TweenMax.to('.smallMenuErase', { x: -300, opacity: 0 });
+		TweenMax.to('.smallMenuErase', { x: '-100%', opacity: 0 });
 		TweenMax.to('.navigation', { opacity: 0 });
 		gsap.registerPlugin(ScrollTrigger);
 
@@ -365,7 +365,7 @@ const TopFRont = props => {
 			.staggerFromTo(
 				'.stagger li',
 				0.2,
-				{ y: 50, opacity: 0 },
+				{ y: 200, opacity: 0 },
 				{ y: 0, opacity: 1, ease: 'Power2.easeOut' },
 				0.1,
 			);
@@ -385,7 +385,7 @@ const TopFRont = props => {
 				burgerPlay.setDirection(-1);
 				burgerPlay.play();
 				TweenMax.to('.smallMenuErase', {
-					x: -500,
+					x: '-100%',
 					opacity: 0,
 					ease: 'power2.out',
 				});
