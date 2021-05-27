@@ -53,39 +53,87 @@ const TopFRont = props => {
 	};
 
 	const home = () => {
+		const clickMenuitem = new TimelineMax();
 		setScrollBounce(
-			gsap.to(window, { duration: 1.5, scrollTo: '#home', ease: 'hop' }),
+			clickMenuitem.to(window, {
+				scrollTo: '#home',
+			}),
+			clickMenuitem.eventCallback('onComplete', function () {
+				if (showIt) {
+					setChecked(false);
+				}
+			}),
 		);
-		setChecked(false);
 		showArrowDown();
 	};
 
 	const bio = () => {
+		const clickMenuitem = new TimelineMax();
 		setScrollBounce(
-			gsap.to(window, { duration: 1.5, scrollTo: '#one', ease: 'hop' }),
-			setChecked(false),
+			clickMenuitem
+				.to('.innermenu', {
+					duration: 0.5,
+					x: '-100%',
+					ease: 'Power2.out',
+				})
+				.to(window, { scrollTo: '#one' })
+				.to('.innermenu', {
+					duration: 0,
+					x: 0,
+				}),
+			clickMenuitem.eventCallback('onComplete', function () {
+				if (showIt) {
+					setChecked(false);
+				}
+			}),
 		);
 		showArrowUp();
 		showArrowDown();
 	};
 
 	const samples = () => {
+		const clickMenuitem = new TimelineMax();
 		setScrollBounce(
-			gsap.to(window, { duration: 1.5, scrollTo: '#two', ease: 'hop' }),
-			setChecked(false),
+			clickMenuitem
+				.to('.innermenu', {
+					duration: 0.5,
+					x: '-100%',
+					ease: 'Power2.out',
+				})
+				.to(window, { scrollTo: '#two' })
+				.to('.innermenu', {
+					duration: 0,
+					x: 0,
+				}),
+			clickMenuitem.eventCallback('onComplete', function () {
+				if (showIt) {
+					setChecked(false);
+				}
+			}),
 		);
 		showArrowUp();
 		showArrowDown();
 	};
 
 	const contact = () => {
+		const clickMenuitem = new TimelineMax();
 		setScrollBounce(
-			gsap.to(window, {
-				duration: 1.5,
-				scrollTo: '#three',
-				ease: 'hopBottom',
+			clickMenuitem
+				.to('.innermenu', {
+					duration: 0.5,
+					x: '-100%',
+					ease: 'Power2.out',
+				})
+				.to(window, { duration: 0, scrollTo: '#three' })
+				.to('.innermenu', {
+					duration: 0,
+					x: 0,
+				}),
+			clickMenuitem.eventCallback('onComplete', function () {
+				if (showIt) {
+					setChecked(false);
+				}
 			}),
-			setChecked(false),
 		);
 		showArrowUp();
 		showArrowDown();
@@ -107,6 +155,7 @@ const TopFRont = props => {
 		if (window.innerHeight > window.innerWidth) {
 			setShowIt(true);
 			setShowItBig(false);
+			openScroll();
 		} else {
 			setShowItBig(true);
 			setShowIt(false);
@@ -150,9 +199,10 @@ const TopFRont = props => {
 		TweenMax.to('.navigation', { opacity: 0 });
 		gsap.registerPlugin(ScrollTrigger);
 
-		gsap.to('.toggleMenuBar', 2, {
+		gsap.to('.toggleMenuBar', {
 			width: '200%',
 			scrollTrigger: '#one',
+			duration: 2,
 		});
 
 		// gsap.utils.toArray(".panel").forEach((panel, i) => {
@@ -465,11 +515,12 @@ const TopFRont = props => {
 						</nav>
 					</div>
 				</div>
+				<div className='blackblankfill'></div>
 			</div>
 			<div className='panels'>
 				<div className='arrowtop bounceUp'></div>
 				<section className='panel yellow' id='one'>
-					<About />
+					<About showIt={showIt} />
 				</section>
 				<section className='panel black' id='two'>
 					<div className='wrapper'>two</div>

@@ -127,10 +127,10 @@ body {
 }
 
 .smallMenuErase.navMenu {
-	background-color: rgba(255, 184, 0, 0.75);
+	background-color: rgba(255, 184, 0, 1);
 	backdrop-filter: blur(8px);
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 	display: block;
 }
 
@@ -238,12 +238,8 @@ body {
 }
 
 .small {
-	left: 0;
-	top: 0;
 	opacity: 1;
 	display: block;
-	height: 100%;
-	position: inherit;
 }
 
 /* HOVER */
@@ -366,8 +362,8 @@ body {
 }
 
 .navigation {
-	width: 5%;
-	height: 5%;
+	width: 2em;
+	height: 2em;
 	cursor: pointer;
 	z-index: 99999;
 	position: absolute;
@@ -406,6 +402,12 @@ body {
 			box-sizing: border-box;
 			padding: 1em 1em;
 			transform-origin: bottom right;
+		}
+
+		.blackblankfill {
+			background-color: black;
+			width: 100%;
+			height: 100%;
 		}
 	}
 
@@ -494,14 +496,12 @@ body {
 
 		.smallScreen {
 			outline: none;
-			align-items: center;
-			display: flex;
 			width: 100%;
+			height: auto;
 		}
 
 		.innermenu {
 			width: 100%;
-			height: 100%;
 		}
 	}
 
@@ -548,7 +548,6 @@ body {
 		}
 		.innermenu {
 			width: 100vw;
-			height: 100vh;
 		}
 	}
 

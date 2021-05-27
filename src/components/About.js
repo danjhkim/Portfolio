@@ -13,13 +13,17 @@ import studyPic from '../images/studying.json';
 import '../styles/About.css';
 
 class About extends React.Component {
-	state = {
-		StatsShow: null,
-		Blockingshow: null,
-		childAnim: null,
-		computerState: null,
-		studyState: null,
-	};
+	constructor(props) {
+		super(props);
+		this.state = {
+			StatsShow: null,
+			Blockingshow: null,
+			childAnim: null,
+			computerState: null,
+			studyState: null,
+		};
+	}
+
 	videoRef = React.createRef();
 	blockingRef = React.createRef();
 	childRef = React.createRef();
@@ -142,6 +146,11 @@ class About extends React.Component {
 			x: 200,
 		});
 
+		//! testing child
+		TweenMax.to('.child', {
+			opacity: 0,
+		});
+
 		TweenMax.to('.title5 h3', 0, { opacity: 0, x: -200 });
 		TweenMax.to('.study', 0, { opacity: 0, x: 200 });
 		TweenMax.to('.fourthPara p', 0, { opacity: 0, x: -200 });
@@ -221,6 +230,13 @@ class About extends React.Component {
 			onEnter: () => this.unBlurSkill(),
 		});
 
+		ScrollTrigger.create({
+			trigger: '.title2 h3',
+			start: 'top 60%',
+			onEnter: () => this.childShow(),
+			onComplete: child.play(),
+		});
+
 		gsap.to('.titleStat', {
 			y: '500%',
 			ease: 'none',
@@ -266,6 +282,10 @@ class About extends React.Component {
 		// 	start: 'top 50%',
 		// });
 	}
+
+	childShow = () => {
+		TweenMax.to('.child', { opacity: 1, duration: 0.5 });
+	};
 
 	hobbies = () => {
 		TweenMax.to('.title5 h3', { opacity: 1, x: 0, duration: 0.3 });
@@ -345,8 +365,6 @@ class About extends React.Component {
 			opacity: 1,
 			ease: 'Back.easeOut',
 		});
-
-		this.state.childAnim.play();
 	};
 
 	moveAround = () => {
