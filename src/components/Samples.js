@@ -10,7 +10,6 @@ import metro from '../images/images/metro.jpg';
 import blogger from '../images/images/blogger.jpg';
 import game from '../images/images/GAME.jpg';
 import { isBrowser, isMobile } from 'react-device-detect';
-import { _isUndefined } from 'gsap/gsap-core';
 
 const Samples = () => {
 	const grey = document.querySelectorAll('.greybox');
@@ -63,7 +62,7 @@ const Samples = () => {
 				});
 			}
 		}
-	}, []);
+	}, [grey]);
 
 	useEffect(() => {
 		let workLinks = document.querySelectorAll('.indent');
