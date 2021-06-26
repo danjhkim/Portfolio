@@ -64,8 +64,6 @@ const TopFRont = props => {
 		document.body.style.overflowY = 'scroll';
 	};
 
-	const where = () => {};
-
 	const entering = e => {
 		console.log(e);
 		gsap.to(e.target, {});
@@ -509,7 +507,7 @@ const TopFRont = props => {
 					opacity: 1,
 					display: 'block',
 				});
-				TweenMax.to('.navBar', {
+				TweenMax.to('.navigation', {
 					opacity: 1,
 					display: 'block',
 				});
@@ -638,7 +636,7 @@ const TopFRont = props => {
 							onChange={checkerFunc}></div>
 					</nav>
 				</div>
-				{where()}
+
 				<div
 					className={`navMenu smallMenuErase ${
 						showItBig ? 'gone' : `small`

@@ -571,7 +571,7 @@ body {
 
 .navigation {
 	cursor: pointer;
-	z-index: 999999;
+	z-index: 999999999;
 	position: fixed;
 	top: 0.5rem;
 	left: 0.5rem;
@@ -621,23 +621,24 @@ body {
 }
 @media only screen and (min-width: 6001px) {
 	@media screen and (orientation: portrait) {
+		.smallScreen {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
 		#firsty {
 			width: 100vw;
-			height: 100vh;
 		}
 		.navigation {
-			width: 1em;
-			height: 1em;
-			cursor: pointer;
-			z-index: 999999;
-			position: fixed;
-			top: 0.5rem;
-			left: 0.5rem;
+			width: 10em;
+			height: 10em;
+			top: 5rem;
+			left: 5rem;
 			margin: 0em;
 		}
 
 		.innermenu {
-			height: 100%;
+			max-width: 1440px;
 			padding: 1.2rem;
 			box-sizing: border-box;
 		}
@@ -715,7 +716,23 @@ body {
 		margin-top: 15rem;
 		margin-left: 10rem;
 	}
+
+	.navigation {
+		position: fixed;
+		top: 8rem;
+		left: 10rem;
+		width: 12rem;
+		height: 12rem;
+	}
 	@media screen and (orientation: portrait) {
+		.smallScreen {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		#firsty {
+			width: 100vw;
+		}
 		.navMenu {
 			font-family: 'Oswald', 'Inconsolata', sans-serif;
 			font-size: 150px;
@@ -727,13 +744,9 @@ body {
 			opacity: 0;
 		}
 		.innermenu {
-			height: 100%;
+			max-width: 1440px;
 			padding: 1.2rem;
 			box-sizing: border-box;
-		}
-		#firsty {
-			width: 100vw;
-			height: 100vh;
 		}
 	}
 
@@ -753,13 +766,6 @@ body {
 			white-space: nowrap;
 			display: flex;
 			letter-spacing: 0.1em;
-		}
-		.navigation {
-			position: fixed;
-			top: 8rem;
-			left: 10rem;
-			width: 12rem;
-			height: 12rem;
 		}
 	}
 }
@@ -830,6 +836,7 @@ body {
 			top: 0;
 			left: 0;
 			opacity: 0;
+			font-size: 64px;
 		}
 
 		.smallScreen {
@@ -839,7 +846,7 @@ body {
 		}
 
 		.innermenu {
-			width: 100%;
+			max-width: 1440px;
 		}
 	}
 
@@ -916,7 +923,7 @@ body {
 			opacity: 0;
 		}
 		.innermenu {
-			width: 100vw;
+			max-width: 1440px;
 		}
 	}
 
@@ -980,7 +987,7 @@ body {
 		}
 
 		.innermenu {
-			width: 100vw;
+			max-width: 1440px;
 		}
 	}
 
@@ -1018,7 +1025,7 @@ body {
 		}
 
 		.innermenu {
-			width: 100%;
+			max-width: 1440px;
 		}
 	}
 
@@ -1077,10 +1084,14 @@ body {
 	}
 
 	.navigation {
-		left: 2%;
+		left: 3rem;
 		width: 3.5rem;
 		height: 3.5rem;
-		top: 3%;
+		top: 3rem;
+	}
+
+	.naver {
+		margin-left: 4rem;
 	}
 	@media screen and (orientation: portrait) {
 		.navMenu {
@@ -1095,7 +1106,7 @@ body {
 		}
 
 		.innermenu {
-			width: 100%;
+			max-width: 1440px;
 		}
 
 		.smallSreen {
@@ -1131,6 +1142,9 @@ body {
 }
 
 @media only screen and (max-width: 1700px) {
+	.naver {
+		margin-left: 3rem;
+	}
 	.navigation {
 		position: fixed;
 		top: 3rem;
@@ -1155,7 +1169,7 @@ body {
 
 	@media screen and (orientation: portrait) {
 		.innermenu {
-			width: 100%;
+			max-width: 1440px;
 		}
 
 		.smallSreen {
@@ -1179,7 +1193,7 @@ body {
 @media only screen and (max-width: 1600px) {
 	@media screen and (orientation: portrait) {
 		.innermenu {
-			width: 100%;
+			max-width: 1440px;
 		}
 
 		.smallSreen {
@@ -1200,7 +1214,7 @@ body {
 @media only screen and (max-width: 1540px) {
 	@media screen and (orientation: portrait) {
 		.innermenu {
-			width: 100%;
+			max-width: 1440px;
 		}
 
 		.smallSreen {
@@ -1276,6 +1290,10 @@ body {
 @media only screen and (max-width: 1366px) {
 	.boxedIn {
 		width: 30%;
+	}
+
+	.naver {
+		margin-left: 2rem;
 	}
 	@media screen and (orientation: portrait) {
 		.navMenu {
@@ -1593,6 +1611,11 @@ body {
 	.navigation {
 		width: 3rem;
 		height: 3rem;
+		left: 1rem;
+	}
+
+	.naver {
+		margin-top: 2rem;
 	}
 	@media screen and (orientation: landscape) {
 		.infoblock {
@@ -1648,6 +1671,10 @@ body {
 		top: 0.5rem;
 	}
 
+	.boxedIn {
+		width: 40%;
+	}
+
 	.wrapper {
 		margin: 0 auto;
 		padding: 0rem;
@@ -1658,24 +1685,12 @@ body {
 	}
 
 	@media screen and (orientation: portrait) {
-		.navMenu {
-			font-size: 22px;
-			font-weight: 1000;
-			width: 35%;
-			height: 12em;
-		}
-
 		.innermenu {
 			width: 100%;
 		}
 	}
 
 	@media screen and (orientation: landscape) {
-		.navMenu {
-			font-size: 12.8px;
-			width: 20.5%;
-		}
-
 		.innermenu {
 			width: 100%;
 		}

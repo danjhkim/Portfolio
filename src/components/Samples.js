@@ -9,16 +9,28 @@ import calc from '../images/images/calc.jpg';
 import metro from '../images/images/metro.jpg';
 import blogger from '../images/images/blogger.jpg';
 import game from '../images/images/GAME.jpg';
+import { isBrowser, isMobile } from 'react-device-detect';
 
 const Samples = () => {
 	useEffect(() => {
-		TweenMax.set('.serviceBoxInner', { y: 200, opacity: 0 });
+		if (isMobile) {
+			TweenMax.set('.serviceBoxInner', { y: 0, opacity: 1 });
+		} else if (isBrowser) {
+			TweenMax.set('.serviceBoxInner', { y: 200, opacity: 0 });
+		}
+		window.addEventListener('resize', function () {
+			if (isMobile) {
+				TweenMax.set('.serviceBoxInner', { y: 0, opacity: 1 });
+			} else if (isBrowser) {
+				TweenMax.set('.serviceBoxInner', { y: 200, opacity: 0 });
+			}
+		});
 
 		const serviceBox = document.querySelectorAll('.serviceBox');
 
 		for (let i of serviceBox) {
 			i.addEventListener('mouseenter', e => {
-				TweenMax.to(e.target.children[0], 0.5, {
+				TweenMax.to(e.target.children[0], 0.3, {
 					y: 0,
 					opacity: 1,
 					ease: 'Power2.easeOut',
@@ -26,10 +38,15 @@ const Samples = () => {
 			});
 		}
 
-		for (let i of serviceBox) {
-			i.addEventListener('mouseleave', e => {
-				TweenMax.to(e.target.children[0], 0.5, { y: 200, opacity: 0 });
-			});
+		if (isBrowser) {
+			for (let i of serviceBox) {
+				i.addEventListener('mouseleave', e => {
+					TweenMax.to(e.target.children[0], 0.3, {
+						y: 100,
+						opacity: 0,
+					});
+				});
+			}
 		}
 	}, []);
 

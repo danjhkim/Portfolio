@@ -206,7 +206,7 @@ class About extends React.Component {
 
 		ScrollTrigger.create({
 			trigger: '.hobbies h3',
-			start: 'top 70%',
+			start: 'top 75%',
 			onEnter: () => this.hobbies(),
 		});
 
@@ -386,13 +386,13 @@ class About extends React.Component {
 
 		ScrollTrigger.create({
 			trigger: '.title',
-			start: 'top 45%',
+			start: 'top 60%',
 			onEnter: () => child.play(),
 		});
 
 		ScrollTrigger.create({
 			trigger: '.secondPara2',
-			start: 'top 60%',
+			start: 'top 75%',
 			onEnter: () => stats.play(),
 		});
 
