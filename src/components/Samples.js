@@ -41,7 +41,44 @@ const Samples = () => {
 		});
 
 		const serviceBox = document.querySelectorAll('.serviceBox');
+		const title1 = document.querySelectorAll('.title1');
 		if (isBrowser) {
+			for (let i of title1) {
+				i.addEventListener('mouseenter', e => {
+					TweenMax.to(
+						e.target.parentNode.children[1].children[0],
+						0.3,
+						{
+							y: 0,
+							opacity: 1,
+							ease: 'Power2.easeOut',
+						},
+					);
+
+					TweenMax.to(e.target.parentNode.children[0], 0.03, {
+						opacity: 0.5,
+					});
+				});
+			}
+
+			for (let i of title1) {
+				i.addEventListener('mouseleave', e => {
+					TweenMax.to(
+						e.target.parentNode.children[1].children[0],
+						0.3,
+						{
+							y: 0,
+							opacity: 1,
+							ease: 'Power2.easeOut',
+						},
+					);
+
+					TweenMax.to(e.target.parentNode.children[0], 0.03, {
+						opacity: 0.5,
+					});
+				});
+			}
+
 			for (let i of serviceBox) {
 				i.addEventListener('mouseenter', e => {
 					TweenMax.to(e.target.children[0], 0.3, {
@@ -58,6 +95,69 @@ const Samples = () => {
 
 			for (let i of serviceBox) {
 				i.addEventListener('mouseleave', e => {
+					TweenMax.to(e.target.children[0], 0.3, {
+						y: 100,
+						opacity: 0,
+					});
+
+					TweenMax.to(e.target.parentNode.children[0], 0.03, {
+						opacity: 0,
+					});
+				});
+			}
+		} else {
+			for (let i of title1) {
+				i.removeEventListener('mouseenter', e => {
+					TweenMax.to(
+						e.target.parentNode.children[1].children[0],
+						0.3,
+						{
+							y: 0,
+							opacity: 1,
+							ease: 'Power2.easeOut',
+						},
+					);
+
+					TweenMax.to(e.target.parentNode.children[0], 0.03, {
+						opacity: 0.5,
+					});
+				});
+			}
+
+			for (let i of title1) {
+				i.removeEventListener('mouseleave', e => {
+					TweenMax.to(
+						e.target.parentNode.children[1].children[0],
+						0.3,
+						{
+							y: 0,
+							opacity: 1,
+							ease: 'Power2.easeOut',
+						},
+					);
+
+					TweenMax.to(e.target.parentNode.children[0], 0.03, {
+						opacity: 0.5,
+					});
+				});
+			}
+
+			for (let i of serviceBox) {
+				i.removeEventListener('mouseenter', e => {
+					TweenMax.to(e.target.children[0], 0.3, {
+						y: 0,
+						opacity: 1,
+						ease: 'Power2.easeOut',
+					});
+
+					TweenMax.to(e.target.parentNode.children[0], 0.03, {
+						opacity: 0.5,
+					});
+				});
+			}
+
+			for (let i of serviceBox) {
+				i.removeEventListener('mouseleave', e => {
 					TweenMax.to(e.target.children[0], 0.3, {
 						y: 100,
 						opacity: 0,
@@ -141,8 +241,8 @@ const Samples = () => {
 						<div className='tablewidth'>
 							<div className='column'>
 								<div className='greybox'></div>
-								<div class='serviceBox'>
-									<div class='serviceBoxInner'>
+								<div className='serviceBox'>
+									<div className='serviceBoxInner'>
 										<h2>React Blog Site</h2>
 										<p>
 											Clean, simple blog site that uses
@@ -160,8 +260,8 @@ const Samples = () => {
 							</div>
 							<div className='column'>
 								<div className='greybox'></div>
-								<div class='serviceBox'>
-									<div class='serviceBoxInner'>
+								<div className='serviceBox'>
+									<div className='serviceBoxInner'>
 										<h2>API Clock</h2>
 										<p>
 											Written in Vanilla JS, an API clock
@@ -177,8 +277,8 @@ const Samples = () => {
 							</div>
 							<div className='column'>
 								<div className='greybox'></div>
-								<div class='serviceBox'>
-									<div class='serviceBoxInner'>
+								<div className='serviceBox'>
+									<div className='serviceBoxInner'>
 										<h2>API Weather</h2>
 										<p>
 											Weather App that uses the
@@ -195,8 +295,8 @@ const Samples = () => {
 							</div>
 							<div className='column'>
 								<div className='greybox'></div>
-								<div class='serviceBox'>
-									<div class='serviceBoxInner'>
+								<div className='serviceBox'>
+									<div className='serviceBoxInner'>
 										<h2>Respnsive Design</h2>
 										<p>
 											This barebone's site showcases
@@ -213,8 +313,8 @@ const Samples = () => {
 
 							<div className='column'>
 								<div className='greybox'></div>
-								<div class='serviceBox'>
-									<div class='serviceBoxInner'>
+								<div className='serviceBox'>
+									<div className='serviceBoxInner'>
 										<h2>React Widgets</h2>
 										<p>
 											Four simple React widgets, that can
@@ -230,8 +330,8 @@ const Samples = () => {
 							</div>
 							<div className='column'>
 								<div className='greybox'></div>
-								<div class='serviceBox'>
-									<div class='serviceBoxInner'>
+								<div className='serviceBox'>
+									<div className='serviceBoxInner'>
 										<h2>Calculator</h2>
 										<p>
 											This calculator was created using
@@ -246,8 +346,8 @@ const Samples = () => {
 							</div>
 							<div className='column'>
 								<div className='greybox'></div>
-								<div class='serviceBox'>
-									<div class='serviceBoxInner'>
+								<div className='serviceBox'>
+									<div className='serviceBoxInner'>
 										<h2>Metronome</h2>
 										<p>
 											This metronome App was created using
@@ -262,8 +362,8 @@ const Samples = () => {
 							</div>
 							<div className='column'>
 								<div className='greybox'></div>
-								<div class='serviceBox'>
-									<div class='serviceBoxInner'>
+								<div className='serviceBox'>
+									<div className='serviceBoxInner'>
 										<h2>Game!</h2>
 										<p>
 											Vanilla JS game that manipulates

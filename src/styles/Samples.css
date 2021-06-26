@@ -41,14 +41,15 @@
 	width: 100%;
 	display: flex;
 	justify-content: center;
+	align-items: flex-start;
 }
 
 .tablewidth {
 	max-width: 1920px;
 	display: flex;
-	flex-flow: row;
 	justify-content: center;
 	flex-wrap: wrap;
+	align-items: flex-start;
 }
 
 .column {
@@ -63,8 +64,7 @@
 	background: transparent;
 	border-spacing: 1.5rem;
 	border-collapse: separate;
-	width: auto;
-	height: auto;
+
 	flex-flow: row wrap;
 	background-color: brown;
 	position: relative;
