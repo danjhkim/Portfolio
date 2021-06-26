@@ -186,7 +186,8 @@
 	}
 
 	.title1 {
-		padding: 2rem;
+		padding-right: 1.5rem;
+		padding-bottom: 0.5rem;
 		bottom: 0.1rem;
 		right: 0.1rem;
 		width: 6rem;
