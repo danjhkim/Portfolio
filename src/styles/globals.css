@@ -69,6 +69,7 @@ body {
 	display: flex;
 	justify-content: center;
 	box-sizing: border-box;
+	overflow-x: hidden;
 }
 
 .panels {
@@ -76,6 +77,7 @@ body {
 	background-color: #161616;
 	width: 100%;
 	margin: 0 auto;
+	overflow-x: hidden;
 }
 
 @keyframes animate {
@@ -123,6 +125,7 @@ body {
 .main {
 	width: 100vw;
 	height: 100vh;
+	overflow-x: hidden;
 }
 .surround {
 	flex-direction: column;
@@ -639,8 +642,8 @@ body {
 
 		.innermenu {
 			max-width: 1440px;
-			padding: 1.2rem;
-			box-sizing: border-box;
+
+			box-sizing: content-box;
 		}
 
 		.navMenu {
@@ -745,7 +748,6 @@ body {
 		}
 		.innermenu {
 			max-width: 1440px;
-			padding: 1.2rem;
 			box-sizing: border-box;
 		}
 	}

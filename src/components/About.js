@@ -198,8 +198,8 @@ class About extends React.Component {
 			x: 200,
 		});
 
-		TweenMax.to('.title5 h3', 0, { opacity: 0, x: -200 });
-		TweenMax.to('.study', 0, { opacity: 0, x: 200 });
+		TweenMax.to('.title5 h3', 0, { opacity: 0, y: -200 });
+		TweenMax.to('.study', 0, { opacity: 0, y: 200 });
 
 		gsap.registerPlugin(ScrollTrigger);
 		gsap.registerPlugin(TextPlugin);
@@ -488,7 +488,7 @@ class About extends React.Component {
 	// };
 
 	hobbies = () => {
-		TweenMax.to('.study', { opacity: 1, x: 0, duration: 0.2, delay: 0.2 });
+		TweenMax.to('.study', { opacity: 1, y: 0, duration: 0.2, delay: 0.2 });
 	};
 
 	// opacityShowText = () => {
