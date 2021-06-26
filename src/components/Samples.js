@@ -10,19 +10,34 @@ import metro from '../images/images/metro.jpg';
 import blogger from '../images/images/blogger.jpg';
 import game from '../images/images/GAME.jpg';
 import { isBrowser, isMobile } from 'react-device-detect';
+import { _isUndefined } from 'gsap/gsap-core';
 
 const Samples = () => {
+	const grey = document.querySelectorAll('.greybox');
 	useEffect(() => {
 		if (isMobile) {
 			TweenMax.set('.serviceBoxInner', { y: 0, opacity: 1 });
+			for (let i of grey) {
+				i.style.opacity = 0.5;
+			}
 		} else if (isBrowser) {
-			TweenMax.set('.serviceBoxInner', { y: 200, opacity: 0 });
+			TweenMax.set('.serviceBoxInner', { y: 100, opacity: 0 });
+
+			for (let i of grey) {
+				i.style.opacity = 0;
+			}
 		}
 		window.addEventListener('resize', function () {
 			if (isMobile) {
 				TweenMax.set('.serviceBoxInner', { y: 0, opacity: 1 });
+				for (let i of grey) {
+					i.style.opacity = 0.5;
+				}
 			} else if (isBrowser) {
-				TweenMax.set('.serviceBoxInner', { y: 200, opacity: 0 });
+				TweenMax.set('.serviceBoxInner', { y: 100, opacity: 0 });
+				for (let i of grey) {
+					i.style.opacity = 0;
+				}
 			}
 		});
 

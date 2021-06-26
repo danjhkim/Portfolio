@@ -139,6 +139,19 @@
 	padding: 1rem;
 	line-height: 2rem;
 	font-family: 'Inconsolata', 'Oswald', sans-serif;
+	color: #f9f9f9;
+}
+
+.title1:hover {
+	color: #f9f9f9;
+	background-color: #161616;
+	-webkit-box-shadow: inset 0px 0px 0px 0.6rem #ffb800;
+	-moz-box-shadow: inset 0px 0px 0px 0.6rem #ffb800;
+	box-shadow: inset 0px 0px 0px 0.6rem #ffb800;
+}
+
+.title1:hover .greybox {
+	opacity: 0.5;
 }
 
 .column:hover .title1 {
@@ -181,10 +194,10 @@
 	}
 
 	.title1 {
-		padding: 1.1rem;
+		padding: 2rem;
 		bottom: 0.1rem;
 		right: 0.1rem;
-		width: 4rem;
+		width: 6rem;
 		background-color: transparent;
 	}
 
@@ -207,6 +220,6 @@
 	}
 
 	.title1 {
-		padding: 0.2rem;
+		padding: 1rem;
 	}
 }
