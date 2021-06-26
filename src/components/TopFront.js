@@ -513,6 +513,7 @@ const TopFRont = props => {
 					opacity: 1,
 					display: 'block',
 				});
+
 				danBorder2.play();
 				gsap.to('.infoblock', {
 					y: 0,

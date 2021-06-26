@@ -1,12 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import gsap, {
-	TweenMax,
-	ScrollToPlugin,
-	ScrollTrigger,
-	TimelineMax,
-	MorphSVGPlugin,
-	DrawSVGPlugin,
-} from 'gsap/all';
+import React, { useEffect } from 'react';
+import gsap, { TweenMax } from 'gsap/all';
 import '../styles/Samples.css';
 import clock from '../images/images/clock.jpg';
 import weather from '../images/images/weather.jpg';
