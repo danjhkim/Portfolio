@@ -1,0 +1,210 @@
+.samples {
+	margin-top: 7rem;
+	width: 100%;
+}
+
+.mainSectionSamples {
+}
+
+.samplestitle {
+	font-family: 'Oswald', 'Inconsolata', sans-serif;
+	font-weight: 900;
+	margin: none;
+	background-color: #161616;
+	line-height: 2rem;
+	height: 0.5em;
+	width: 5em;
+	margin-bottom: 0.5em;
+	font-size: 3.5rem;
+	color: #f9f9f9;
+	transition: ;
+}
+
+.mainSectionSamples {
+	width: 100%;
+}
+
+.indent {
+	padding: 0 1em;
+	width: 18rem;
+}
+
+.bodySample {
+	margin-top: 1rem;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-self: center;
+}
+
+.table {
+	width: 100%;
+}
+
+.tablewidth {
+	max-width: 100%;
+	display: flex;
+	flex-flow: row;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.column {
+	max-width: 560px;
+	max-height: 337px;
+	margin: 1rem;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+	border-spacing: 1.5rem;
+	border-collapse: separate;
+	width: auto;
+	height: auto;
+	flex-flow: row wrap;
+	background-color: brown;
+	position: relative;
+	cursor: pointer;
+}
+
+.title1 {
+	color: #161616;
+	position: absolute;
+	padding: 2rem;
+	bottom: 1rem;
+	right: 1rem;
+	width: 8rem;
+	background-color: #f9f9f9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2rem;
+	font-family: 'Oswald', 'Inconsolata', sans-serif;
+	transition: all 0.3s;
+}
+
+.picture img {
+	width: 100%;
+	height: 100%;
+	object-position: center center;
+	vertical-align: middle;
+	object-fit: contain;
+}
+
+.cover {
+	object-fit: cover;
+}
+
+.contain {
+	object-fit: contain;
+}
+
+.picture {
+	width: 100%;
+	height: 100%;
+	background-color: aquamarine;
+}
+
+.greybox {
+	background-color: rgb(27, 27, 27);
+	opacity: 0;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	display: block;
+	transition: all 0.3s;
+}
+
+.column:hover .greybox {
+	opacity: 0.5;
+}
+
+.serviceBox {
+	position: absolute;
+	flex: 1;
+	height: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	overflow: hidden;
+	background: transparent;
+	font-size: 1.2rem;
+	padding: 1rem;
+	line-height: 2rem;
+	font-family: 'Inconsolata', 'Oswald', sans-serif;
+}
+
+.column:hover .title1 {
+	color: #f9f9f9;
+	background-color: #161616;
+	-webkit-box-shadow: inset 0px 0px 0px 0.6rem #ffb800;
+	-moz-box-shadow: inset 0px 0px 0px 0.6rem #ffb800;
+	box-shadow: inset 0px 0px 0px 0.6rem #ffb800;
+}
+
+@media only screen and (max-width: 575px) {
+	.serviceBoxInner {
+		font-size: 1.1rem;
+	}
+	.title1 {
+		padding: 1.4rem;
+		bottom: 0.5rem;
+		right: 0.5rem;
+		width: 5rem;
+		font-size: 1.5rem;
+	}
+	.column:hover .title1 {
+		color: #f9f9f9;
+		background-color: #161616;
+		-webkit-box-shadow: inset 0px 0px 0px 0.4rem #ffb800;
+		-moz-box-shadow: inset 0px 0px 0px 0.4rem #ffb800;
+		box-shadow: inset 0px 0px 0px 0.4rem #ffb800;
+	}
+}
+
+@media only screen and (max-width: 540px) {
+	.serviceBoxInner {
+		font-size: 1rem;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.serviceBoxInner {
+		font-size: 1rem;
+	}
+
+	.title1 {
+		padding: 1.1rem;
+		bottom: 0.1rem;
+		right: 0.1rem;
+		width: 4rem;
+		background-color: transparent;
+	}
+
+	.column:hover .title1 {
+		color: #f9f9f9;
+		background-color: transparent;
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+	}
+	.serviceBox {
+		line-height: 1.6rem;
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	.serviceBox {
+		line-height: 1.2rem;
+		font-size: 0.8rem !important;
+	}
+
+	.title1 {
+		padding: 0.2rem;
+	}
+}

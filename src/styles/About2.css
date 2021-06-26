@@ -1,0 +1,547 @@
+/* inconsolata-regular - latin */
+@font-face {
+	font-family: 'Inconsolata';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../styles/fonts/inconsolata-v21-latin-regular.eot'); /* IE9 Compat Modes */
+	src: local(''),
+		url('../styles/fonts/inconsolata-v21-latin-regular.eot?#iefix')
+			format('embedded-opentype'),
+		/* IE6-IE8 */ url('../styles/fonts/inconsolata-v21-latin-regular.woff2')
+			format('woff2'),
+		/* Super Modern Browsers */
+			url('../styles/fonts/inconsolata-v21-latin-regular.woff')
+			format('woff'),
+		/* Modern Browsers */
+			url('../styles/fonts/inconsolata-v21-latin-regular.ttf')
+			format('truetype'),
+		/* Safari, Android, iOS */
+			url('../styles/fonts/inconsolata-v21-latin-regular.svg#Inconsolata')
+			format('svg'); /* Legacy iOS */
+}
+/* oswald-regular - latin */
+@font-face {
+	font-family: 'Oswald';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../styles/fonts/oswald-v36-latin-regular.eot'); /* IE9 Compat Modes */
+	src: local(''),
+		url('../styles/fonts/oswald-v36-latin-regular.eot?#iefix')
+			format('embedded-opentype'),
+		/* IE6-IE8 */ url('../styles/fonts/oswald-v36-latin-regular.woff2')
+			format('woff2'),
+		/* Super Modern Browsers */
+			url('../styles/fonts/oswald-v36-latin-regular.woff') format('woff'),
+		/* Modern Browsers */
+			url('../styles/fonts/oswald-v36-latin-regular.ttf')
+			format('truetype'),
+		/* Safari, Android, iOS */
+			url('../styles/fonts/oswald-v36-latin-regular.svg#Oswald')
+			format('svg'); /* Legacy iOS */
+}
+.iconwrapper {
+	width: 100%;
+}
+
+.iconwrapper:hover .link {
+	background-image: url('../images/icons/link2.svg');
+}
+
+.iconwrapper:hover h3 {
+	color: #ffb800;
+	cursor: pointer;
+}
+
+.title h3:hover {
+	color: #ffb800;
+	cursor: pointer;
+}
+
+.link {
+	background-image: url('../images/icons/link.svg');
+	width: 2rem;
+	height: 2rem;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	cursor: pointer;
+	position: relative;
+	left: -1em;
+	top: 1.9em;
+}
+
+.linkSkillSet {
+	left: -2.2em;
+	top: 1.6em;
+}
+
+.about {
+	font-family: 'Oswald', 'Inconsolata', sans-serif;
+	font-weight: 900;
+	margin: none;
+	width: 100%;
+	color: #b2b2b2;
+	background-color: #161616;
+	line-height: 2rem;
+}
+
+.hero__content {
+	z-index: 101;
+	position: relative;
+	width: 100%;
+	background-color: #161616;
+}
+
+.titleStat h3 {
+	position: relative;
+}
+
+.secondPara {
+	margin-top: 10em;
+}
+
+.title h3 {
+	height: 0.5em;
+	width: 5em;
+	margin-bottom: 0.5em;
+	font-size: 3.5rem;
+	font-weight: 900;
+	color: #f9f9f9;
+}
+
+.hr1 {
+	margin-left: 0;
+	background-color: #ffb800;
+	outline: none;
+	border: 1px solid #ffb800;
+}
+
+.hr2 {
+	margin-left: 0;
+	background-color: #ffb800;
+	border: 1px solid #ffb800;
+}
+
+@keyframes animate2 {
+	0% {
+		transform: scaleX(0);
+		transform-origin: left;
+	}
+	50% {
+		transform: scaleX(1);
+		transform-origin: left;
+	}
+	50.1% {
+		transform: scaleX(1);
+		transform-origin: right;
+	}
+
+	100% {
+		transform: scaleX(0);
+		transform-origin: right;
+	}
+}
+
+.transgrow {
+	animation: animate2 linear infinite;
+	animation-duration: 1s;
+	opacity: 1;
+	filter: blur(1px);
+}
+
+.title {
+	box-sizing: border-box;
+	padding: 0 1em;
+	width: 7.5em;
+}
+
+.lowersection {
+	box-sizing: border-box;
+	padding: 0 1em;
+	background-color: #161616;
+}
+
+.title2 h3 {
+	padding: 0;
+	height: 2em;
+	margin: 0;
+	margin-bottom: 0.5em;
+	font-weight: 900;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: white;
+}
+
+.reacter,
+.javascripter,
+.afterEffecter,
+.Figmater {
+	display: inline-block;
+	outline: none;
+	-webkit-text-stroke-width: 0px;
+}
+
+.lastSection {
+	margin-top: 5em;
+}
+
+.thirdPara2ndp a {
+	text-decoration: none;
+	color: rgb(30, 195, 245);
+}
+
+.thirdPara2ndp a:hover {
+	text-decoration: underline;
+}
+
+.thirdPara2ndp a:visited {
+	color: rgb(30, 195, 245);
+}
+
+.thirdPara p ul li {
+	list-style-type: disc;
+	list-style-position: inside;
+	display: list-item;
+}
+
+.title4 {
+	width: 9em;
+}
+
+.conclu {
+	margin-bottom: 0.5em;
+}
+
+.title4 h3 {
+	padding: 0;
+	height: 1.5em;
+	margin: 0;
+	margin-top: 1em;
+	font-family: 'Oswald';
+	font-size: 1.4rem;
+	font-weight: 400;
+	color: #ffb800;
+}
+
+.title5 h3 {
+	padding: 0;
+	height: 1.5em;
+	margin: 0 auto;
+	margin-top: 1em;
+	font-size: 300%;
+	font-weight: 900;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: white;
+}
+
+.value {
+	width: 3em;
+}
+.used {
+	width: 5em;
+}
+.tools {
+	width: 2.5em;
+}
+.hobbies {
+	width: 3.5em;
+}
+.hardware {
+	width: 4em;
+}
+
+.title3 h3 {
+	padding: 0;
+	height: 1.5em;
+	margin: 0;
+	margin-top: 1em;
+	font-size: 200%;
+	font-weight: 900;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: white;
+}
+
+.titleStat {
+	width: 9em;
+	cursor: pointer;
+}
+
+.titleStat h3:hover {
+	color: #ffb800;
+}
+
+.secondPara2 {
+	margin-top: 0em;
+}
+
+.titleStat h3 {
+	margin: 0;
+	font-size: 3.5rem;
+	font-weight: 900;
+	color: #f9f9f9;
+	padding: 0;
+	backface-visibility: hidden;
+	height: 0.6em;
+	margin-bottom: 0.4em;
+	font-family: 'Oswald';
+	letter-spacing: 2px;
+}
+
+.blockingholder {
+	position: relative;
+}
+
+.box hr {
+	margin: 0;
+	padding: 0;
+}
+
+.textBox {
+	color: #f9f9f9;
+	font-family: 'Inconsolata', 'Oswald', sans-serif;
+	width: 70%;
+	font-size: 1.3rem;
+	font-weight: 400;
+	color: #e2e2e2;
+	padding: 0 2.3em;
+	margin-bottom: 2rem;
+}
+
+.textBoxLower {
+	margin-top: 3em;
+	color: #b2b2b2;
+	font-family: 'Inconsolata', 'Oswald', sans-serif;
+	width: 100%;
+}
+
+.rightSide {
+	height: 20em;
+	width: 20em;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: flex;
+	justify-content: flex-end;
+	position: absolute;
+	z-index: 999999999999;
+}
+
+.rightSideFace {
+	width: 75%;
+	height: 75%;
+	background-image: url('../images/face.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.bottom {
+	display: flex;
+	justify-content: center;
+}
+
+.statement {
+	color: #f9f9f9;
+	font-family: 'Inconsolata', 'Oswald', sans-serif;
+	width: 100%;
+	font-size: 1.3rem;
+	font-weight: 400;
+}
+
+.statement p {
+	margin: 0;
+}
+
+.firstPara {
+	width: 100%;
+	margin-right: 2em;
+	color: #e2e2e2;
+	border-radius: 0.2em;
+	margin-bottom: 1em;
+}
+
+.study {
+	float: right;
+	width: 25%;
+}
+
+.fourthPara p {
+	font-size: 2em;
+}
+
+.secondPara {
+	color: #f9f9f9;
+	font-family: 'Inconsolata', 'Oswald', sans-serif;
+	font-size: 1.3rem;
+	font-weight: 400;
+	width: 100%;
+	margin-bottom: 3em;
+
+	color: #e2e2e2;
+	border-radius: 0.2em;
+	margin-bottom: 1em;
+}
+
+.SkillSpace {
+	display: block;
+	margin: 2000em 0;
+}
+
+.showKid {
+	width: 70%;
+}
+
+.child {
+	margin-right: 4em;
+	width: 15%;
+	opacity: 1;
+	float: right;
+}
+
+.stats {
+	width: 30%;
+	float: right;
+}
+
+.computer {
+	width: 35%;
+	float: right;
+}
+
+.sec1 {
+	background-color: #161616;
+	margin-top: 0;
+}
+
+.underline {
+	display: block;
+	position: relative;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: calc(1px);
+	background-color: #ffb800;
+}
+
+.underline2 {
+	display: block;
+	position: relative;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: calc(1px);
+	background-color: #ffb800;
+}
+
+/* media queries */
+/* NAV BAR */
+
+@media only screen and (max-width: 1280px) {
+	@media screen and (orientation: landscape) {
+		.child {
+			width: 25%;
+		}
+
+		.stats {
+			width: 40%;
+		}
+
+		.computer {
+			width: 20rem;
+		}
+
+		.study {
+			width: 20rem;
+		}
+	}
+	@media screen and (orientation: portrait) {
+		.child {
+			width: 25%;
+		}
+
+		.stats {
+			width: 40%;
+		}
+		.computer {
+			width: 20rem;
+		}
+
+		.study {
+			width: 20rem;
+		}
+	}
+}
+
+@media only screen and (max-width: 1024px) {
+	@media screen and (orientation: landscape) {
+		.child {
+			width: 40%;
+		}
+
+		.stats {
+			width: 45%;
+		}
+
+		.computer {
+			width: 20rem;
+		}
+
+		.study {
+			width: 22rem;
+		}
+	}
+	@media screen and (orientation: portrait) {
+		.child {
+			width: 40%;
+		}
+
+		.stats {
+			width: 45%;
+		}
+		.computer {
+			width: 20rem;
+		}
+
+		.study {
+			width: 22rem;
+		}
+	}
+}
+
+@media only screen and (max-width: 820px) {
+	@media screen and (orientation: landscape) {
+		.child {
+			width: 10rem;
+			float: none;
+		}
+
+		.stats {
+			width: 22rem;
+			float: none;
+			margin: 0 auto;
+		}
+		.computer {
+			width: 20rem;
+			float: none;
+		}
+		.study {
+			float: none;
+		}
+	}
+	@media screen and (orientation: portrait) {
+		.child {
+			width: 10rem;
+			float: none;
+		}
+
+		.stats {
+			width: 22rem;
+			float: none;
+			margin: 0 auto;
+		}
+		.computer {
+			width: 20rem;
+			float: none;
+		}
+		.study {
+			float: none;
+		}
+	}
+}

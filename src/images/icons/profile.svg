@@ -1,16 +1,14 @@
-<svg width="727" height="907" viewBox="0 0 727 907" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d)">
-<path d="M453.25 0.75H94.25C44.8875 0.75 4.50002 41.1375 4.50002 90.5V808.5C4.50002 857.863 44.8875 898.25 94.25 898.25H632.75C682.113 898.25 722.5 857.863 722.5 808.5V270L453.25 0.75ZM363.5 359.75C412.863 359.75 453.25 400.138 453.25 449.5C453.25 498.863 412.863 539.25 363.5 539.25C314.138 539.25 273.75 498.863 273.75 449.5C273.75 400.138 314.138 359.75 363.5 359.75ZM543 718.75H184V693.171C184 656.823 205.54 624.513 238.748 610.153C278.096 592.979 320.567 584.115 363.5 584.115C406.433 584.115 448.904 592.979 488.253 610.153C504.51 617.102 518.367 628.676 528.101 643.436C537.834 658.196 543.015 675.491 543 693.171V718.75Z" fill="black"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 727 907" style="enable-background:new 0 0 727 907;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#B2B2B2;}
+</style>
+<g>
+	<path class="st0" d="M453.2,0.8h-359C44.9,0.8,4.5,41.1,4.5,90.5v718c0,49.4,40.4,89.8,89.7,89.8h538.5c49.4,0,89.8-40.4,89.8-89.8
+		V270L453.2,0.8z M363.5,359.8c49.4,0,89.8,40.4,89.8,89.8c0,49.4-40.4,89.8-89.8,89.8c-49.4,0-89.8-40.4-89.8-89.8
+		C273.8,400.1,314.1,359.8,363.5,359.8z M543,718.8H184v-25.6c0-36.3,21.5-68.7,54.7-83c39.3-17.2,81.8-26,124.8-26
+		s85.4,8.9,124.8,26c16.3,6.9,30.1,18.5,39.8,33.3c9.7,14.8,14.9,32.1,14.9,49.7V718.8z"/>
 </g>
-<defs>
-<filter id="filter0_d" x="0.500015" y="0.75" width="726" height="905.5" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-<feOffset dy="4"/>
-<feGaussianBlur stdDeviation="2"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
-</filter>
-</defs>
 </svg>

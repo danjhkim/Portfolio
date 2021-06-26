@@ -4,29 +4,34 @@ import gsap, {
 	ScrollToPlugin,
 	ScrollTrigger,
 	TimelineMax,
+	MorphSVGPlugin,
+	DrawSVGPlugin,
 } from 'gsap/all';
+
 import { CustomEase } from 'gsap/CustomEase';
-import designFront from '../images/cover1.json';
+import designFront from '../images/cover1beta.json';
 import designFrontSmall from '../images/cover1small.json';
-import blackboxing from '../images/fader.json';
 import lottie from 'lottie-web';
 import burger from '../images/burger.json';
+import borderrimanim from '../images/outerrim.json';
+import danielanim from '../images/D.json';
 
 // icons
 import homeicon from '../images/icons/home.svg';
 import foldericon from '../images/icons/folder.svg';
 import infoicon from '../images/icons/info.svg';
-import profileicon from '../images/icons/profile.svg';
+import profile from '../images/icons/profile.svg';
 
 import About from '../components/About';
+import Samples from '../components/Samples';
 
 const TopFRont = props => {
 	const DesignFrontRef = useRef();
 	const DesignFrontRefSmall = useRef();
-	const blackBox = useRef();
 	const burgerRef = useRef();
+	const borderRef2 = useRef();
+	const danRef = useRef();
 	const [animation2, setAnimation2] = useState();
-	const [animation3, setAnimation3] = useState();
 	const [animationSmall, setAnimationSmall] = useState();
 	const [menuPop, setMenuPop] = useState(false);
 	const [running, setRunning] = useState(false);
@@ -36,9 +41,16 @@ const TopFRont = props => {
 	const [arrowTime, setArrowTime] = useState(false);
 	const [checked, setChecked] = useState(false);
 	const [burgerPlay, setBurgerPlay] = useState();
+	const [danBorder2, setDanBorder2] = useState();
+
+	const [danielSymbol, setDanielSymbol] = useState();
 
 	gsap.registerPlugin(ScrollToPlugin);
 	gsap.registerPlugin(CustomEase);
+	gsap.registerPlugin(ScrollTrigger);
+	gsap.registerPlugin(MorphSVGPlugin);
+	gsap.registerPlugin(DrawSVGPlugin);
+
 	CustomEase.create(
 		'hop',
 		'M0,0 C0,0 0.114,0.56 0.15,1 0.164,1.151 0.294,1.22 0.376,1.214 0.5,1.204 0.6,1.024 0.618,1 0.66,0.922 0.82,0.948 0.84,0.948 0.911,0.948 1,1 1,1 ',
@@ -52,6 +64,18 @@ const TopFRont = props => {
 		document.body.style.overflowY = 'scroll';
 	};
 
+	const where = () => {};
+
+	const entering = e => {
+		console.log(e);
+		gsap.to(e.target, {});
+	};
+
+	const leaving = e => {
+		console.log(e);
+		gsap.to(e.target, {});
+	};
+
 	const home = () => {
 		const clickMenuitem = new TimelineMax();
 		setScrollBounce(
@@ -59,9 +83,9 @@ const TopFRont = props => {
 				scrollTo: '#home',
 			}),
 			clickMenuitem.eventCallback('onComplete', function () {
-				if (showIt) {
+				setTimeout(() => {
 					setChecked(false);
-				}
+				}, 200);
 			}),
 		);
 		showArrowDown();
@@ -69,70 +93,59 @@ const TopFRont = props => {
 
 	const bio = () => {
 		const clickMenuitem = new TimelineMax();
+
 		setScrollBounce(
-			clickMenuitem
-				.to('.innermenu', {
-					duration: 0.5,
-					x: '-100%',
-					ease: 'Power2.out',
-				})
-				.to(window, { scrollTo: '#one' })
-				.to('.innermenu', {
-					duration: 0,
-					x: 0,
-				}),
+			clickMenuitem.to(window, {
+				scrollTo: '#one',
+			}),
 			clickMenuitem.eventCallback('onComplete', function () {
-				if (showIt) {
+				setTimeout(() => {
 					setChecked(false);
-				}
+					gsap.to('.menuFirst', { opacity: 1 });
+					gsap.to('.menuFirst', { webkitFilter: 'blur(0px)' });
+				}, 200);
 			}),
 		);
+
 		showArrowUp();
 		showArrowDown();
 	};
 
 	const samples = () => {
 		const clickMenuitem = new TimelineMax();
+
 		setScrollBounce(
-			clickMenuitem
-				.to('.innermenu', {
-					duration: 0.5,
-					x: '-100%',
-					ease: 'Power2.out',
-				})
-				.to(window, { scrollTo: '#two' })
-				.to('.innermenu', {
-					duration: 0,
-					x: 0,
-				}),
+			clickMenuitem.to(window, {
+				delay: 0.5,
+				scrollTo: '#two',
+			}),
 			clickMenuitem.eventCallback('onComplete', function () {
-				if (showIt) {
+				setTimeout(() => {
 					setChecked(false);
-				}
+					gsap.to('.menuFirst', { opacity: 1 });
+					gsap.to('.menuFirst', { webkitFilter: 'blur(0px)' });
+				}, 200);
 			}),
 		);
+
 		showArrowUp();
 		showArrowDown();
 	};
 
 	const contact = () => {
 		const clickMenuitem = new TimelineMax();
+
 		setScrollBounce(
-			clickMenuitem
-				.to('.innermenu', {
-					duration: 0.5,
-					x: '-100%',
-					ease: 'Power2.out',
-				})
-				.to(window, { duration: 0, scrollTo: '#three' })
-				.to('.innermenu', {
-					duration: 0,
-					x: 0,
-				}),
+			clickMenuitem.to(window, {
+				delay: 0.5,
+				scrollTo: '#three',
+			}),
 			clickMenuitem.eventCallback('onComplete', function () {
-				if (showIt) {
+				setTimeout(() => {
 					setChecked(false);
-				}
+					gsap.to('.menuFirst', { opacity: 1 });
+					gsap.to('.menuFirst', { webkitFilter: 'blur(0px)' });
+				}, 200);
 			}),
 		);
 		showArrowUp();
@@ -140,96 +153,100 @@ const TopFRont = props => {
 	};
 
 	const showArrowUp = () => {
-		gsap.to('.arrowtop', { opacity: 1, delay: 1.5 });
+		gsap.to('.arrowtop', { opacity: 1, delay: 1 });
 		gsap.to('.arrowtop', { opacity: 0, delay: 4 });
 		setArrowTime(true);
 	};
 
 	const showArrowDown = () => {
-		gsap.to('.arrow', { opacity: 1, delay: 1.5 });
+		gsap.to('.arrow', { opacity: 1, delay: 1 });
 		gsap.to('.arrow', { opacity: 0, delay: 4 });
 		setArrowTime(true);
 	};
 
 	useEffect(() => {
-		if (window.innerHeight > window.innerWidth) {
-			setShowIt(true);
-			setShowItBig(false);
-			openScroll();
-		} else {
-			setShowItBig(true);
-			setShowIt(false);
-		}
+		let workLinks = document.querySelectorAll('.boxedIn');
 
-		window.addEventListener('resize', function () {
-			openScroll();
-			if (window.innerHeight > window.innerWidth) {
-				setShowIt(true);
-				setShowItBig(false);
-			} else {
-				setShowItBig(true);
-				setShowIt(false);
-			}
+		const enterAnimation = (link, e, index) => {
+			link.tl.tweenFromTo(0, 'midway');
+		};
 
-			// if (window.innerWidth <= 768) {
-			//     setShowIt(true)
-			//     setShowItBig(false)
-			// } else {
-			//     setShowItBig(true)
-			//     setShowIt(false)
-			// }
+		// Mouseleave function
+		const leaveAnimation = (link, e) => {
+			link.tl.play();
+		};
+
+		workLinks.forEach((link, index, value) => {
+			let underline = link.querySelector('.underline');
+			link.tl = gsap.timeline({ paused: true });
+
+			link.tl.fromTo(
+				underline,
+				{
+					width: '0%',
+					left: '0%',
+				},
+				{
+					width: '100%',
+					duration: 1,
+				},
+			);
+
+			link.tl.add('midway');
+
+			link.tl.fromTo(
+				underline,
+				{
+					width: '100%',
+					left: '0%',
+				},
+				{
+					width: '0%',
+					left: '100%',
+					duration: 1,
+					immediateRender: false,
+				},
+			);
+			// Mouseenter
+			link.addEventListener('mouseenter', e => {
+				enterAnimation(link, e, index);
+			});
+
+			// Mouseleave
+			link.addEventListener('mouseleave', e => {
+				leaveAnimation(link, e);
+			});
 		});
 
-		return () => {
-			window.removeEventListener('resize', function () {
-				openScroll();
-				if (window.innerHeight > window.innerWidth) {
-					setShowIt(true);
-					setShowItBig(false);
-				} else {
-					setShowItBig(true);
-					setShowIt(false);
-				}
-			});
-		};
-	}, []);
+		gsap.to('.infoblock', {
+			y: '-330%',
+		});
 
-	useEffect(() => {
 		TweenMax.to('.smallMenuErase', { x: '-100%', opacity: 0 });
 		TweenMax.to('.navigation', { opacity: 0 });
-		gsap.registerPlugin(ScrollTrigger);
 
-		gsap.to('.toggleMenuBar', {
-			width: '200%',
-			scrollTrigger: '#one',
-			duration: 2,
+		const danLottie = lottie.loadAnimation({
+			container: danRef.current,
+			renderer: 'svg',
+			loop: false,
+			autoplay: false,
+			animationData: danielanim,
+			rendererSettings: {
+				preserveAspectRatio: 'none',
+			},
 		});
 
-		// gsap.utils.toArray(".panel").forEach((panel, i) => {
-		//     ScrollTrigger.create({
-		//         trigger: panel,
-		//         start: "top top",
-		//         pin: true,
-		//         pinSpacing: false,
-		//     });
+		// const borderLottie = lottie.loadAnimation({
+		// 	container: borderRef.current,
+		// 	renderer: 'svg',
+		// 	loop: false,
+		// 	autoplay: false,
+		// 	animationData: borderrimanim,
+		// 	rendererSettings: {
+		// 		preserveAspectRatio: 'none',
+		// 	},
 		// });
 
-		// ScrollTrigger.create({
-		//     snap: 1 / (4 - 1), // snap whole page to the closest section!
-		//     duration: .5
-		// });
-
-		// create({
-		//     mode: 'scroll',
-		//     player: '#firstLottie',
-		//     actions: [
-		//         {
-		//             visibility: [0, 1],
-		//             type: 'seek',
-		//             frames: [0, 50],
-		//         },
-		//     ],
-		// });
 		const burgerLottie = lottie.loadAnimation({
 			container: burgerRef.current,
 			renderer: 'svg',
@@ -263,29 +280,18 @@ const TopFRont = props => {
 			},
 		});
 
-		const animation2 = lottie.loadAnimation({
-			container: blackBox.current,
-			renderer: 'svg',
-			loop: false,
-			autoplay: false,
-			animationData: blackboxing,
-			rendererSettings: {
-				preserveAspectRatio: 'none',
-			},
-		});
-
-		animation.addEventListener('complete', () => {
-			setRunning(false);
-			const wait = Math.floor(Math.random() * 4000) + 2000;
-			setTimeout(() => {
-				if (running) {
-					return;
-				} else {
-					setRunning(true);
-					animation.playSegments([138, 173], true);
-				}
-			}, wait);
-		});
+		// animation.addEventListener('complete', () => {
+		// 	setRunning(false);
+		// 	const wait = Math.floor(Math.random() * 4000) + 2000;
+		// 	setTimeout(() => {
+		// 		if (running) {
+		// 			return;
+		// 		} else {
+		// 			setRunning(true);
+		// 			animation.playSegments([151, 201], true);
+		// 		}
+		// 	}, wait);
+		// });
 
 		animationSmall.addEventListener('complete', () => {
 			setRunning(false);
@@ -300,10 +306,145 @@ const TopFRont = props => {
 			}, wait);
 		});
 
+		const scrollBord = lottie.loadAnimation({
+			container: borderRef2.current,
+			renderer: 'svg',
+			loop: false,
+			autoplay: false,
+			animationData: borderrimanim,
+			rendererSettings: {
+				preserveAspectRatio: 'none',
+			},
+		});
+
+		scrollBord.addEventListener('enterFrame', () => {
+			if (scrollBord.currentFrame > 33) {
+				scrollBord.pause();
+			}
+		});
+
+		//important for menu
+		const ScrollLottie = obj => {
+			let timeObj = { currentFrame: 34 };
+			ScrollTrigger.create({
+				trigger: '#firsty',
+				scrub: true,
+				start: 'top top',
+				endTrigger: '#four',
+				end: 'bottom bottom',
+				onUpdate: self => {
+					if (obj.duration) {
+						gsap.to(timeObj, {
+							duration: obj.duration,
+							currentFrame: () => {
+								let num = Math.floor(
+									self.progress *
+										(scrollBord.totalFrames - 1) +
+										34,
+								);
+								if (num > 210) {
+									return 210;
+								} else {
+									return num;
+								}
+							},
+							onUpdate: () => {
+								scrollBord.goToAndStop(
+									timeObj.currentFrame,
+									true,
+								);
+							},
+							ease: 'expo',
+						});
+					} else {
+						scrollBord.goToAndStop(
+							self.progress * (scrollBord.totalFrames - 1),
+							true,
+						);
+					}
+				},
+			});
+		};
+
+		ScrollLottie({
+			target: '.borderRim2',
+			duration: 4,
+			speed: '+=6000',
+		});
+
 		setAnimation2(animation);
-		setAnimation3(animation2);
 		setAnimationSmall(animationSmall);
 		setBurgerPlay(burgerLottie);
+		setDanielSymbol(danLottie);
+		setDanBorder2(scrollBord);
+
+		const showOnBigScrollLeave = () => {
+			if (window.innerHeight < window.innerWidth) {
+				gsap.to('.navigation', { opacity: 1, display: 'block' });
+			}
+		};
+
+		const showOnBigScroll = () => {
+			if (window.innerHeight < window.innerWidth) {
+				gsap.to('.navigation', { opacity: 1, display: 'block' });
+			}
+			scrollBord.play();
+		};
+
+		gsap.to('.innermenu', {
+			scrollTrigger: {
+				trigger: '#firsty',
+				start: 'center 20%',
+				// toggleActions: 'play none none reverse',
+				onLeaveBack: () => showOnBigScrollLeave(),
+				onEnter: () => showOnBigScroll(),
+			},
+			// duration: 1,
+			// y: '-110%',
+			// ease: 'power4',
+		});
+
+		if (window.innerHeight > window.innerWidth) {
+			setShowIt(true);
+			setShowItBig(false);
+			openScroll();
+			TweenMax.to('.innermenu', {
+				backgroundSize: '210%',
+			});
+		} else {
+			setShowItBig(true);
+			setShowIt(false);
+			gsap.to('.innermenu', {
+				y: '0',
+			});
+			TweenMax.to('.innermenu', {
+				backgroundSize: '160%',
+			});
+		}
+
+		window.addEventListener('resize', function () {
+			if (window.innerHeight > window.innerWidth) {
+				openScroll();
+				setShowIt(true);
+				setShowItBig(false);
+				TweenMax.to('.innermenu', {
+					backgroundSize: '210%',
+				});
+				TweenMax.to('.navigation', {
+					opacity: 1,
+					display: 'block',
+				});
+			} else if (window.innerWidth > window.innerHeight) {
+				setShowItBig(true);
+				setShowIt(false);
+				gsap.to('.innermenu', {
+					y: '0',
+				});
+				TweenMax.to('.innermenu', {
+					backgroundSize: '160%',
+				});
+			}
+		});
 
 		// eslint-disable-next-line
 
@@ -333,6 +474,24 @@ const TopFRont = props => {
 					}
 				}, wait);
 			});
+
+			window.removeEventListener('resize', function () {
+				if (window.innerHeight > window.innerWidth) {
+					openScroll();
+					setShowIt(true);
+					setShowItBig(false);
+					TweenMax.to('.navigation', {
+						opacity: 1,
+						display: 'block',
+					});
+				} else if (window.innerWidth > window.innerHeight) {
+					setShowItBig(true);
+					setShowIt(false);
+					gsap.to('.innermenu', {
+						y: '0',
+					});
+				}
+			});
 		};
 		// eslint-disable-next-line
 	}, []);
@@ -345,15 +504,38 @@ const TopFRont = props => {
 
 			setTimeout(() => {
 				setMenuPop(true);
-				TweenMax.to('.navigation', { opacity: 1 });
+
+				TweenMax.to('.navigation', {
+					opacity: 1,
+					display: 'block',
+				});
+				TweenMax.to('.navBar', {
+					opacity: 1,
+					display: 'block',
+				});
+				danBorder2.play();
+				gsap.to('.infoblock', {
+					y: 0,
+					duration: 1,
+					ease: 'back',
+					delay: 3,
+				});
 			}, 4000);
 
 			setTimeout(() => {
-				animation3.play();
+				gsap.to('.blackBox', {
+					opacity: 0,
+
+					duration: 4,
+				});
+				gsap.to('.blackBox', {
+					display: 'none',
+					delay: 4,
+				});
 				animationSmall.play();
 			}, 1500);
 		}
-	}, [props.introDone, animation2, animation3, animationSmall]);
+	}, [props.introDone, animation2, animationSmall, danBorder2, showItBig]);
 
 	useEffect(() => {
 		//SCREEN MENU
@@ -364,17 +546,39 @@ const TopFRont = props => {
 			.to('.stagger', { autoAlpha: 1, duration: 0 })
 			.staggerFromTo(
 				'.stagger li',
-				0.2,
+				0.5,
 				{ y: 200, opacity: 0 },
-				{ y: 0, opacity: 1, ease: 'Power2.easeOut' },
+				{ y: 0, opacity: 1, ease: 'back.in' },
 				0.1,
 			);
 		//after showing it staggers the items on the menu
 
+		// if (props.introDone === true) {
+		// 	if (checked) {
+		// 		burgerPlay.setDirection(1);
+		// 		burgerPlay.play();
+		// 		TweenMax.to('.smallMenuErase', {
+		// 			x: 0,
+		// 			opacity: 1,
+		// 			ease: 'power2.out',
+		// 		});
+		// 		staggermenuitems.play(0);
+		// 	} else if (!checked) {
+		// 		burgerPlay.setDirection(-1);
+		// 		burgerPlay.play();
+		// 		TweenMax.to('.smallMenuErase', {
+		// 			x: '-100%',
+		// 			opacity: 0,
+		// 			ease: 'power2.out',
+		// 		});
+		// 	}
+		// }
+
 		if (props.introDone === true) {
+			danielSymbol.setSpeed(15);
 			if (checked) {
-				burgerPlay.setDirection(1);
-				burgerPlay.play();
+				danielSymbol.setDirection(1);
+				danielSymbol.play();
 				TweenMax.to('.smallMenuErase', {
 					x: 0,
 					opacity: 1,
@@ -382,8 +586,8 @@ const TopFRont = props => {
 				});
 				staggermenuitems.play(0);
 			} else if (!checked) {
-				burgerPlay.setDirection(-1);
-				burgerPlay.play();
+				danielSymbol.setDirection(-1);
+				danielSymbol.play();
 				TweenMax.to('.smallMenuErase', {
 					x: '-100%',
 					opacity: 0,
@@ -391,7 +595,7 @@ const TopFRont = props => {
 				});
 			}
 		}
-	}, [checked, burgerPlay, props.introDone]);
+	}, [checked, burgerPlay, props.introDone, menuPop, danielSymbol]);
 
 	const cancelScroll = () => {
 		if (scrollBounce) {
@@ -411,119 +615,151 @@ const TopFRont = props => {
 
 	return (
 		<main className='main' id='home' onWheel={cancelScroll}>
-			<div className={`menuFirst ${showItBig ? null : `gone`}`}>
-				<div
-					className={`blackBox ${showItBig ? null : `gone`}`}
-					ref={blackBox}></div>
-				<div
-					className={`innermenu ${showItBig ? `big` : `gone`}`}
-					ref={DesignFrontRef}>
-					<div
-						className={`navMenu ${menuPop ? 'navGrow' : null}`}
-						onClick={e => e.stopPropagation()}>
-						<nav className='naver' onClick={openScroll}>
-							<ul>
-								<li className='hvr-grow' onClick={home}>
-									<img
-										src={homeicon}
-										alt='Home'
-										className='imagebox'
-									/>
-									<span>WELCOME</span>
-								</li>
-								<li className='hvr-grow' onClick={bio}>
-									<img
-										src={infoicon}
-										alt='biography'
-										className='imagebox'
-									/>
-									<span>BIO</span>
-								</li>
-								<li className='hvr-grow' onClick={samples}>
-									<img
-										src={foldericon}
-										className='imagebox'
-										alt='portofolio'
-									/>
-									<span>SAMPLES</span>
-								</li>
-								<li className='hvr-grow' onClick={contact}>
-									<img
-										src={profileicon}
-										alt='contact'
-										className='imagebox'
-									/>
-									<span>CONTACT</span>
-								</li>
-							</ul>
-						</nav>
-					</div>
-					<div
-						className={`boxShadow ${
-							menuPop ? 'bigShadowanime' : null
-						}`}></div>
-				</div>
-			</div>
-			<div className={`smallScreen ${showItBig ? `gone` : null}`}>
-				<div
-					className={`innermenu ${showIt ? `small` : `gone`}`}
-					ref={DesignFrontRefSmall}>
-					<nav className='navigation' onClick={checkerFunc}>
+			<div className='arrowtop bounceUp'></div>
+			<div className='arrow bounce'></div>
+			<div className='panels'>
+				<div className='navBar'>
+					<nav
+						className={`navigation ${showItBig ? 'null' : `small`}`}
+						onClick={checkerFunc}>
+						{/* <div
+						className='menuToggle'
+						ref={burgerRef}
+						onChange={checkerFunc}></div> */}
+
 						<div
-							className='menuToggle'
-							ref={burgerRef}
+							className='borderRim2'
+							ref={borderRef2}
+							onChange={checkerFunc}></div>
+						<div
+							className='danSymbol'
+							ref={danRef}
 							onChange={checkerFunc}></div>
 					</nav>
-					<div
-						className={`navMenu smallMenuErase`}
-						onClick={e => e.stopPropagation()}>
-						<nav className='naver stagger' onClick={openScroll}>
-							<ul>
-								<li className='hvr-grow' onClick={home}>
+				</div>
+				{where()}
+				<div
+					className={`navMenu smallMenuErase ${
+						showItBig ? 'gone' : `small`
+					}`}
+					onClick={e => e.stopPropagation()}>
+					<nav className='naver stagger' onClick={openScroll}>
+						<ul>
+							<li className='hvr-grow' onClick={home}>
+								<div
+									className='boxedIn'
+									onMouseEnter={e => entering(e)}
+									onMouseLeave={e => leaving(e)}>
 									<img
 										src={homeicon}
 										alt='home'
 										className='imagebox'
 									/>
 									<span>WELCOME</span>
-								</li>
-								<li className='hvr-grow' onClick={bio}>
+									<div className='line1'>
+										<span className='underline'></span>
+									</div>
+								</div>
+							</li>
+							<li className='hvr-grow' onClick={bio}>
+								<div
+									className='boxedIn'
+									onMouseEnter={e => entering(e)}
+									onMouseLeave={e => leaving(e)}>
 									<img
-										src={infoicon}
+										src={profile}
 										alt='biography'
 										className='imagebox'
 									/>
 									<span>BIO</span>
-								</li>
-								<li className='hvr-grow' onClick={samples}>
+									<div className='line2'>
+										<span className='underline'></span>
+									</div>
+								</div>
+							</li>
+							<li className='hvr-grow' onClick={samples}>
+								<div
+									className='boxedIn'
+									onMouseEnter={e => entering(e)}
+									onMouseLeave={e => leaving(e)}>
 									<img
 										src={foldericon}
 										alt='portofolio'
 										className='imagebox'
 									/>
 									<span>SAMPLES</span>
-								</li>
-								<li className='hvr-grow' onClick={contact}>
+									<div className='line3'>
+										<span className='underline'></span>
+									</div>
+								</div>
+							</li>
+							<li className='hvr-grow' onClick={contact}>
+								<div
+									className='boxedIn'
+									onMouseEnter={e => entering(e)}
+									onMouseLeave={e => leaving(e)}>
 									<img
 										src={infoicon}
 										alt='contact'
 										className='imagebox'
 									/>
 									<span>CONTACT</span>
-								</li>
-							</ul>
-						</nav>
-					</div>
+									<div className='line4'>
+										<span className='underline'></span>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</nav>
 				</div>
-				<div className='blackblankfill'></div>
-			</div>
-			<div className='panels'>
-				<div className='arrowtop bounceUp'></div>
+				<section className='panel yellow' id='firsty'>
+					<div className='blackBox'></div>
+					<div className={`surround ${showItBig ? `null` : `gone`}`}>
+						<div
+							className={`menuFirst ${
+								showItBig ? null : `gone`
+							}`}>
+							<div
+								className={`innermenu ${
+									showItBig ? `big` : `gone`
+								}`}
+								ref={DesignFrontRef}>
+								{/* <div
+									className={`boxShadow ${
+										menuPop ? 'bigShadowanime' : null
+									}`}></div> */}
+							</div>
+						</div>
+						<div className='infoblock'>
+							<span>Daniel</span>
+							<span>J.H. KIM</span>
+							<span>Portfoilio 2021</span>
+							<span>
+								Toronto . aspiring technologist . cannoli fan .
+								MMA fan{' '}
+							</span>
+							<span>
+								<center>
+									"Personal development is the belief that you
+									are worth the effort, time and energy needed
+									to develop yourself" <br />{' '}
+								</center>
+							</span>
+							<span className='author'>-Denis Waitley</span>
+						</div>
+					</div>
+					<div className={`smallScreen ${showItBig ? `gone` : null}`}>
+						<div
+							className={`innermenu ${showIt ? `small` : `gone`}`}
+							ref={DesignFrontRefSmall}></div>
+						<div className='blackblankfill'></div>
+					</div>
+				</section>
 				<section className='panel yellow' id='one'>
 					<About showIt={showIt} />
 				</section>
-				<section className='panel black' id='two'>
-					<div className='wrapper'>two</div>
+				<section className='panel yellow' id='two'>
+					<Samples />
 				</section>
 				<section className='panel yellow' id='three'>
 					<div className='wrapper'>three</div>
@@ -531,7 +767,6 @@ const TopFRont = props => {
 				<section className='panel black' id='four'>
 					<div className='wrapper'>four</div>
 				</section>
-				<div className='arrow bounce'></div>
 			</div>
 		</main>
 	);
