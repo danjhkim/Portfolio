@@ -122,10 +122,6 @@
 	transition: all 0.3s;
 }
 
-.column:hover .greybox {
-	opacity: 0.5;
-}
-
 .serviceBox {
 	position: absolute;
 	flex: 1;
@@ -148,10 +144,6 @@
 	-webkit-box-shadow: inset 0px 0px 0px 0.6rem #ffb800;
 	-moz-box-shadow: inset 0px 0px 0px 0.6rem #ffb800;
 	box-shadow: inset 0px 0px 0px 0.6rem #ffb800;
-}
-
-.title1:hover .greybox {
-	opacity: 0.5;
 }
 
 .column:hover .title1 {

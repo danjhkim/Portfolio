@@ -41,22 +41,29 @@ const Samples = () => {
 		});
 
 		const serviceBox = document.querySelectorAll('.serviceBox');
-
-		for (let i of serviceBox) {
-			i.addEventListener('mouseenter', e => {
-				TweenMax.to(e.target.children[0], 0.3, {
-					y: 0,
-					opacity: 1,
-					ease: 'Power2.easeOut',
-				});
-			});
-		}
-
 		if (isBrowser) {
+			for (let i of serviceBox) {
+				i.addEventListener('mouseenter', e => {
+					TweenMax.to(e.target.children[0], 0.3, {
+						y: 0,
+						opacity: 1,
+						ease: 'Power2.easeOut',
+					});
+
+					TweenMax.to(e.target.parentNode.children[0], 0.03, {
+						opacity: 0.5,
+					});
+				});
+			}
+
 			for (let i of serviceBox) {
 				i.addEventListener('mouseleave', e => {
 					TweenMax.to(e.target.children[0], 0.3, {
 						y: 100,
+						opacity: 0,
+					});
+
+					TweenMax.to(e.target.parentNode.children[0], 0.03, {
 						opacity: 0,
 					});
 				});

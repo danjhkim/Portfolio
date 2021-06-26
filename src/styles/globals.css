@@ -77,7 +77,6 @@ body {
 	background-color: #161616;
 	width: 100%;
 	margin: 0 auto;
-	overflow-x: hidden;
 }
 
 @keyframes animate {
@@ -125,7 +124,6 @@ body {
 .main {
 	width: 100vw;
 	height: 100vh;
-	overflow-x: hidden;
 }
 .surround {
 	flex-direction: column;
