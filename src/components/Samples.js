@@ -417,7 +417,7 @@ const Samples = () => {
 
 							<a
 								rel='noopener noreferrer'
-								href='https://lucid-hawking-c40d77.netlify.app'
+								href='https://boring-fermat-3d1a0e.netlify.app/'
 								target='_blank'>
 								<div className='column'>
 									<div className='greybox'></div>
