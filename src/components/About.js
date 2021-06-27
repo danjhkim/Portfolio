@@ -684,9 +684,6 @@ class About extends React.Component {
 											<span className='underline'></span>
 										</div>
 										<div className='secondPara'>
-											<div
-												className='stats'
-												ref={this.videoRef}></div>
 											<p className='secondPara2'>
 												My primary focus has been on
 												frontend web development.
@@ -737,6 +734,9 @@ class About extends React.Component {
 													further myself as a
 													developer!
 												</span>
+												<div
+													className='stats'
+													ref={this.videoRef}></div>
 											</p>
 										</div>
 										<div className='thirdPara'>
@@ -846,9 +846,6 @@ class About extends React.Component {
 												<h3 className='boo5'> </h3>
 											</div>
 											<div>
-												<div
-													className='study '
-													ref={this.studyRef}></div>
 												<ul className='thirdPara2ndp boop5'>
 													<li>
 														Intel Core i7 10700 -
@@ -870,6 +867,9 @@ class About extends React.Component {
 												<h3 className='boo6'> </h3>
 											</div>
 											<div>
+												<div
+													className='study '
+													ref={this.studyRef}></div>
 												<ul className='thirdPara2ndp boop6'>
 													<li>Fantasy Novels</li>
 													<li>Gardening</li>
