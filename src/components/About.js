@@ -8,7 +8,7 @@ import gsap, {
 
 import lottie from 'lottie-web';
 
-import statsjson from '../images/stats.json';
+import statsjson from '../images/stats3.json';
 import blocking from '../images/blocking.json';
 
 import childSmile from '../images/child.json';
@@ -16,7 +16,6 @@ import computerpic from '../images/computer.json';
 import studyPic from '../images/studying.json';
 
 import '../styles/About2.css';
-
 class About extends React.Component {
 	constructor(props) {
 		super(props);
@@ -38,6 +37,105 @@ class About extends React.Component {
 	componentDidMount() {
 		gsap.registerPlugin(ScrollToPlugin);
 		let workLinks = document.querySelectorAll('.lining');
+
+		let hover2 = document.querySelectorAll('.hoverchange2');
+		let hover1 = document.querySelectorAll('.hoverchange');
+
+		for (let item of hover1) {
+			item.addEventListener('mouseenter', e => {
+				gsap.to(e.target.children[0].children[0].children[0], {
+					backgroundImage: 'url(../images/icons/link3.svg);',
+				});
+
+				gsap.to(e.target, {
+					backgroundColor: '#f9f9f9',
+					color: 'black',
+					outline: 'none',
+				});
+
+				gsap.to(e.target.children, {
+					color: 'black',
+				});
+
+				gsap.to(e.target.parentNode.children[1], {
+					backgroundColor: 'black',
+					color: 'white',
+					outline: '3px solid white',
+				});
+				gsap.to(e.target.parentNode.children[1].children, {
+					color: 'white',
+				});
+			});
+
+			// Mouseleave
+			item.addEventListener('mouseleave', e => {
+				gsap.to(e.target, {
+					backgroundColor: 'black',
+					color: 'white',
+					outline: '3px solid white',
+				});
+
+				gsap.to(e.target.children, {
+					color: 'white',
+				});
+
+				gsap.to(e.target.parentNode.children[1], {
+					backgroundColor: 'white',
+					color: 'black',
+					outline: 'none',
+				});
+
+				gsap.to(e.target.parentNode.children[1].children, {
+					color: 'black',
+				});
+			});
+		}
+
+		for (let item of hover2) {
+			item.addEventListener('mouseenter', e => {
+				gsap.to(e.target, {
+					backgroundColor: 'black',
+					color: 'white',
+					outline: '3px solid white',
+				});
+				gsap.to(e.target.children, {
+					color: 'white',
+				});
+
+				gsap.to(e.target.parentNode.children[0], {
+					backgroundColor: 'white',
+					color: 'black',
+					outline: 'none',
+				});
+				gsap.to(e.target.parentNode.children[0].children, {
+					color: 'black',
+				});
+			});
+
+			// Mouseleave
+			item.addEventListener('mouseleave', e => {
+				gsap.to(e.target, {
+					backgroundColor: 'white',
+					color: 'black',
+					outline: 'none',
+				});
+				gsap.to(e.target.children, {
+					color: 'black',
+				});
+
+				gsap.to(e.target.parentNode.children[0], {
+					backgroundColor: 'black',
+					color: 'white',
+					outline: '3px solid white',
+				});
+
+				gsap.to(e.target.parentNode.children[0].children, {
+					color: 'white',
+				});
+			});
+		}
+
+		// // Mouseenter
 
 		const enterAnimation = (link, e, index) => {
 			link.tl.tweenFromTo(0, 'midway');
@@ -396,8 +494,9 @@ class About extends React.Component {
 			onEnter: () => stats.play(),
 		});
 
-		gsap.to('.titleStat', {
-			y: '230%',
+		TweenMax.to('.secondPara2', 0.2, {
+			webkitFilter: 'blur(' + 0 + 'px)',
+			opacity: 1,
 			ease: 'none',
 			duration: 0.2,
 			scrollTrigger: {
@@ -540,11 +639,6 @@ class About extends React.Component {
 	};
 
 	unBlurHistoryandShowLowerPara = () => {
-		TweenMax.to('.secondPara2', 0.2, {
-			webkitFilter: 'blur(' + 0 + 'px)',
-			opacity: 1,
-		});
-
 		setTimeout(() => {
 			this.programs();
 		}, 300);
@@ -599,23 +693,28 @@ class About extends React.Component {
 			<div className='about'>
 				<div className='hero__content'>
 					<div className='bio'>
-						<div className='blockingholder'>
-							{/* <div
+						{/* <div
 								className='blockingCreep'
 								ref={this.blockingRef}></div> */}
-							{/* <div className='rightSide'>
+						{/* <div className='rightSide'>
 								<div className='rightSideFace'></div>
 							</div> */}
-							<div className='sec1'>
-								<div className='wrapper'>
-									<div className='title lining'>
+						<div className='sec1'>
+							<div className='headline__container'>
+								<div className='headline__copy hoverchange '>
+									<div className='title lining centering'>
 										<div
-											className='iconwrapper'
+											className='iconwrapper iconwrapperedit'
 											onClick={this.goIntro}>
-											<div alt='link' className='link' />
-											<h3 id='introduction'>
-												Introduction.
-											</h3>
+											<div
+												alt='link'
+												className='link goner'
+											/>
+											<div className='middletest'>
+												<h3 id='introduction'>
+													Introduction.
+												</h3>
+											</div>
 										</div>
 										<span className='underline'></span>
 									</div>
@@ -626,42 +725,23 @@ class About extends React.Component {
 										<br />
 										Always wanting to learn, and aquire new
 										skills,
-										<br />I enjoy spending my time on fixing
-										little details and optimizing apps!
+										<br />I enjoy spending my time on
+										working on and optimizing apps!
 									</div>
 								</div>
-							</div>
-						</div>
-						<div className='wrapper'>
-							<div className='lowersection'>
-								<div className='bottom'>
+								<div className='headline__image headline--paddingleft hoverchange2'>
 									<div className='statement'>
-										<div className='firstPara'>
-											<div className='firstParaSection'>
-												<div
-													className='child '
-													ref={this.childRef}></div>
-
+										<div className='square'>
+											<div className='square1'>
 												<p className='showKid'>
 													As a kid, I’ve always been
-													intrigued with technology.
-													Growing up with an uncle who
-													is in the industry, I was
-													introduced to computers at a
-													very early age. Always
-													tinkering around and trying
-													to build, fix, and customize
-													my computer, I became
-													interested in web
+													intrigued with technology. I
+													became interested in web
 													development during my youth.
-													Unfortunately, life had
-													other plans and my web
-													development took a backseat
-													to ebb and flow of time.
 												</p>
 												<br />
 												<p className='hiatusP'>
-													After a long hiatus in my
+													After a hiatus in my
 													development as a programmer,
 													I recently have sought to
 													change the direction of my
@@ -669,247 +749,249 @@ class About extends React.Component {
 													passion for programming...
 												</p>
 											</div>
-										</div>
-										<div
-											className='titleStat lining'
-											id='skillset'
-											onClick={this.goSkill}>
-											<div className='iconwrapper'>
-												<div
-													alt='link'
-													className='link linkSkillSet'
-												/>
-												<h3>Skillset.</h3>
-											</div>
-											<span className='underline'></span>
-										</div>
-										<div className='secondPara'>
-											<p className='secondPara2'>
-												My primary focus has been on
-												frontend web development.
-												Cultivating my growth with
-												languages, software, and{' '}
-												<span className='startTriggering'>
-													libraries{' '}
-												</span>
-												such as{' '}
-												<span
-													className='javascripter'
-													style={{
-														color: 'yellow',
-													}}>
-													Javascript
-												</span>
-												,{' '}
-												<span
-													className='reacter'
-													style={{
-														color: 'lightskyblue',
-													}}>
-													{' '}
-													React
-												</span>
-												,{' '}
-												<span
-													className='afterEffecter'
-													style={{
-														color: 'rgb(68, 68, 253)',
-													}}>
-													After Effects
-												</span>
-												, and{' '}
-												<span
-													className='Figmater'
-													style={{
-														color: 'red',
-													}}>
-													Figma
-												</span>
-												. <br />
-												<br />
-												<span className='iamCurrently'>
-													I am currently in the
-													process of continously
-													augmenting my skillset, to
-													further myself as a
-													developer!
-												</span>
-												<div
-													className='stats'
-													ref={this.videoRef}></div>
-											</p>
-										</div>
-										<div className='thirdPara'>
-											<div className='title4 lining2'>
-												<h3 className='boo'> </h3>
-											</div>
-											<div>
-												<ul className='thirdPara2ndp boop'>
-													<li>Efficiency</li>
-													<li>New Technologies</li>
-													<li>Modular Design</li>
-													<li>
-														Good Coding Practices
-													</li>
-												</ul>
-											</div>
-											<div className='title4 lining value'>
-												<h3 className='boo2'> </h3>
-											</div>
-											<div>
-												<ul className='thirdPara2ndp boop2'>
-													<li>Reusability</li>
-													<li>Consistency</li>
-													<li>Automation</li>
-													<li>User Experience</li>
-												</ul>
-											</div>
-											<div className='title4 lining2 used'>
-												<h3 className='boo3'> </h3>
-											</div>
-											<div>
-												<div
-													className='computer '
-													ref={
-														this.computerRef
-													}></div>
-												<ul className='thirdPara2ndp boop3'>
-													<li>
-														<a
-															rel='noopener noreferrer'
-															href='https://reactjs.org/'
-															target='_blank'>
-															React
-														</a>
-													</li>
-													<li>
-														<a
-															rel='noopener noreferrer'
-															href='https://lottiefiles.com/'
-															target='_blank'>
-															Lottie
-														</a>
-													</li>
-													<li>
-														<a
-															rel='noopener noreferrer'
-															href='https://redux.js.org/'
-															target='_blank'>
-															Redux
-														</a>
-													</li>
-													<li>
-														<a
-															rel='noopener noreferrer'
-															href='https://greensock.com/'
-															target='_blank'>
-															GreenSock
-														</a>
-													</li>
-												</ul>
-											</div>
-											<div className='title4 lining2 tools'>
-												<h3 className='boo4'> </h3>
-											</div>
-											<div>
-												<ul className='thirdPara2ndp boop4'>
-													<li>
-														{' '}
-														<a
-															rel='noopener noreferrer'
-															href='https://www.figma.com/'
-															target='_blank'>
-															Figma
-														</a>
-													</li>
-													<li>
-														{' '}
-														<a
-															rel='noopener noreferrer'
-															href='https://www.adobe.com/ca/products/aftereffects.html'
-															target='_blank'>
-															After Effects
-														</a>
-													</li>
-													<li>
-														{' '}
-														<a
-															rel='noopener noreferrer'
-															href='https://code.visualstudio.com/'
-															target='_blank'>
-															Visual Code Studio
-														</a>
-													</li>
-												</ul>
-											</div>
-											<div className='title4 lining2 hardware'>
-												<h3 className='boo5'> </h3>
-											</div>
-											<div>
-												<ul className='thirdPara2ndp boop5'>
-													<li>
-														Intel Core i7 10700 -
-														4.6Ghz
-													</li>
-													<li>DDR4 PC-3200 32GB</li>
-													<li>
-														NVIDIA GeForce GTX 1080
-														Ti
-													</li>
-													<li>
-														Dual Monitors: BenQ
-														XL2440TE {'&'} Samsung
-														LS24R35
-													</li>
-												</ul>
-											</div>
-											<div className='title4 lining2 hobbies'>
-												<h3 className='boo6'> </h3>
-											</div>
-											<div>
-												<div
-													className='study '
-													ref={this.studyRef}></div>
-												<ul className='thirdPara2ndp boop6'>
-													<li>Fantasy Novels</li>
-													<li>Gardening</li>
-													<li>
-														Hanging Out With Dog
-													</li>
-												</ul>
-											</div>
-										</div>
-										<div className='lastSection'>
-											<div className='title4 lining conclu'>
-												<h3 className='boo7'> </h3>
-											</div>
-											<div className='newline boop7'>
-												<p>
-													I still consider myself a
-													new student to the world of
-													programming. I realize that
-													being a developer is an
-													everlasting pursuit of
-													knowledge and the
-													utilization of knowledge. I
-													believe the next step for me
-													is, pursuing an entry level
-													position within the
-													industry.
-												</p>
-											</div>
-											<br />
-											<p className='newline boop7'>
-												Seeking to secure a full-time
-												position in your office to
-												further develop my work
-												experience. I am confident in my
-												abilities and also am an adept
-												student.
-											</p>
+											<div
+												className='child '
+												ref={this.childRef}></div>
 										</div>
 									</div>
 								</div>
+							</div>
+
+							<div className='headline__container'>
+								<div className='headline__copy headline--left hoverchange shiftDown'>
+									<div
+										className='title lining titleStat centering'
+										id='skillset'
+										onClick={this.goSkill}>
+										<div className='iconwrapper'>
+											<div
+												alt='link'
+												className='link goner'
+											/>
+											<div className='middletest'>
+												<h3>Skillset.</h3>
+											</div>
+										</div>
+										<span className='underline'></span>
+									</div>
+
+									<p className='secondPara2'>
+										My primary focus has been on frontend
+										web development. Cultivating my growth
+										with languages, software, and{' '}
+										<span className='startTriggering'>
+											libraries{' '}
+										</span>
+										such as{' '}
+										<span
+											className='javascripter'
+											style={{
+												color: 'yellow',
+											}}>
+											Javascript
+										</span>
+										,{' '}
+										<span
+											className='reacter'
+											style={{
+												color: 'lightskyblue',
+											}}>
+											{' '}
+											React
+										</span>
+										,{' '}
+										<span
+											className='afterEffecter'
+											style={{
+												color: 'rgb(68, 68, 253)',
+											}}>
+											After Effects
+										</span>
+										, and{' '}
+										<span
+											className='Figmater'
+											style={{
+												color: 'red',
+											}}>
+											Figma
+										</span>
+										. <br />
+										<br />
+										<span className='iamCurrently'>
+											I enjoy continously augmenting my
+											skillset, to further myself as a
+											developer!
+										</span>
+									</p>
+								</div>
+								<div className='headline__image headline--paddingright statspadding hoverchange2 reshape'>
+									<div
+										className='stats'
+										ref={this.videoRef}></div>
+								</div>
+							</div>
+							<div className='headline__container'>
+								<div className='headline__copy hoverchange '>
+									<div className='thirdPara'>
+										<div className='title4 lining2 middler'>
+											<h3 className='boo'> </h3>
+										</div>
+										<ul className='thirdPara2ndp boop'>
+											<li>Efficiency</li>
+											<li>New Technologies</li>
+											<li>Modular Design</li>
+											<li>Good Coding Practices</li>
+										</ul>
+									</div>
+								</div>
+								<div className='headline__image headline--paddingleft hoverchange2 '>
+									<div className='thirdPara'>
+										<div className='title4 lining value'>
+											<h3 className='boo2'> </h3>
+										</div>
+										<div className='sidebyside'>
+											<ul className='thirdPara2ndp boop2'>
+												<li>Reusability</li>
+												<li>Consistency</li>
+												<li>Automation</li>
+												<li>User Experience</li>
+											</ul>
+											<div
+												className='computer '
+												ref={this.computerRef}></div>
+										</div>
+
+										<div className='title4 lining2 used'>
+											<h3 className='boo3'> </h3>
+										</div>
+										<div>
+											<ul className='thirdPara2ndp boop3'>
+												<li>
+													<a
+														rel='noopener noreferrer'
+														href='https://reactjs.org/'
+														target='_blank'>
+														React
+													</a>
+												</li>
+												<li>
+													<a
+														rel='noopener noreferrer'
+														href='https://lottiefiles.com/'
+														target='_blank'>
+														Lottie
+													</a>
+												</li>
+												<li>
+													<a
+														rel='noopener noreferrer'
+														href='https://redux.js.org/'
+														target='_blank'>
+														Redux
+													</a>
+												</li>
+												<li>
+													<a
+														rel='noopener noreferrer'
+														href='https://greensock.com/'
+														target='_blank'>
+														GreenSock
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div className='headline__container'>
+								<div className='headline__copy headline--left hoverchange'>
+									<div className='title4 lining2 hardware middler'>
+										<h3 className='boo5'> </h3>
+									</div>
+									<div className='thirdPara'>
+										<ul className='thirdPara2ndp boop5'>
+											<li>
+												Intel Core i7 10700 - 4.6Ghz
+											</li>
+											<li>DDR4 PC-3200 32GB</li>
+											<li>NVIDIA GeForce GTX 1080 Ti</li>
+											<li>
+												Dual Monitors: BenQ XL2440TE{' '}
+												{'&'} Samsung LS24R35
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div className='headline__image headline--paddingright hoverchange2 columner'>
+									<div className='title4 lining2 hobbies'>
+										<h3 className='boo6'> </h3>
+									</div>
+									<div>
+										<div className='sidebyside'>
+											<ul className='thirdPara2ndp boop6'>
+												<li>Fantasy Novels</li>
+												<li>Gardening</li>
+												<li>Hanging Out With Dog</li>
+											</ul>
+											<div
+												className='study '
+												ref={this.studyRef}></div>
+										</div>
+										<div className='title4 lining2 tools'>
+											<h3 className='boo4'> </h3>
+										</div>
+										<div className='centerplz'>
+											<ul className='thirdPara2ndp boop4'>
+												<li>
+													{' '}
+													<a
+														rel='noopener noreferrer'
+														href='https://www.figma.com/'
+														target='_blank'>
+														Figma
+													</a>
+												</li>
+												<li>
+													{' '}
+													<a
+														rel='noopener noreferrer'
+														href='https://www.adobe.com/ca/products/aftereffects.html'
+														target='_blank'>
+														After Effects
+													</a>
+												</li>
+												<li>
+													{' '}
+													<a
+														rel='noopener noreferrer'
+														href='https://code.visualstudio.com/'
+														target='_blank'>
+														Visual Code Studio
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div className='headline__container flexup margingone'>
+								<div className='headline__copy hoverchange fixpush'>
+									<div className='title4 lining conclu middler'>
+										<h3 className='boo7'> </h3>
+									</div>
+									<div className='newline boop7'>
+										<p>
+											Being a developer is an everlasting
+											pursuit of knowledge and the
+											utilization of said knowledge.
+											Seeking to secure a full-time
+											position to apply and further
+											develop myself. I am confident in my
+											abilities and also an adept student.
+										</p>
+									</div>
+								</div>
+								<div className='headline__image hoverchange2 remove'></div>
 							</div>
 						</div>
 					</div>

@@ -9,7 +9,7 @@ import gsap, {
 } from 'gsap/all';
 
 import { CustomEase } from 'gsap/CustomEase';
-import designFront from '../images/cover1beta.json';
+import designFront from '../images/coverchange.json';
 import designFrontSmall from '../images/cover1small.json';
 import lottie from 'lottie-web';
 import burger from '../images/burger.json';
@@ -23,7 +23,9 @@ import infoicon from '../images/icons/info.svg';
 import profile from '../images/icons/profile.svg';
 
 import About from '../components/About';
+
 import Samples from '../components/Samples';
+import Comment from '../components/Comment';
 
 const TopFRont = props => {
 	const DesignFrontRef = useRef();
@@ -37,6 +39,7 @@ const TopFRont = props => {
 	const [running, setRunning] = useState(false);
 	const [showIt, setShowIt] = useState(true);
 	const [showItBig, setShowItBig] = useState(true);
+	const [showItSmall, setShowItSmall] = useState(true);
 	const [scrollBounce, setScrollBounce] = useState();
 	const [arrowTime, setArrowTime] = useState(false);
 	const [checked, setChecked] = useState(false);
@@ -80,11 +83,7 @@ const TopFRont = props => {
 			clickMenuitem.to(window, {
 				scrollTo: '#home',
 			}),
-			clickMenuitem.eventCallback('onComplete', function () {
-				setTimeout(() => {
-					setChecked(false);
-				}, 200);
-			}),
+			setChecked(false),
 		);
 		showArrowDown();
 	};
@@ -96,13 +95,9 @@ const TopFRont = props => {
 			clickMenuitem.to(window, {
 				scrollTo: '#one',
 			}),
-			clickMenuitem.eventCallback('onComplete', function () {
-				setTimeout(() => {
-					setChecked(false);
-					gsap.to('.menuFirst', { opacity: 1 });
-					gsap.to('.menuFirst', { webkitFilter: 'blur(0px)' });
-				}, 200);
-			}),
+			setChecked(false),
+			gsap.to('.menuFirst', { opacity: 1 }),
+			gsap.to('.menuFirst', { webkitFilter: 'blur(0px)' }),
 		);
 
 		showArrowUp();
@@ -117,13 +112,9 @@ const TopFRont = props => {
 				delay: 0.5,
 				scrollTo: '#two',
 			}),
-			clickMenuitem.eventCallback('onComplete', function () {
-				setTimeout(() => {
-					setChecked(false);
-					gsap.to('.menuFirst', { opacity: 1 });
-					gsap.to('.menuFirst', { webkitFilter: 'blur(0px)' });
-				}, 200);
-			}),
+			setChecked(false),
+			gsap.to('.menuFirst', { opacity: 1 }),
+			gsap.to('.menuFirst', { webkitFilter: 'blur(0px)' }),
 		);
 
 		showArrowUp();
@@ -135,19 +126,14 @@ const TopFRont = props => {
 
 		setScrollBounce(
 			clickMenuitem.to(window, {
-				delay: 0.5,
+				delay: 0,
 				scrollTo: '#three',
 			}),
-			clickMenuitem.eventCallback('onComplete', function () {
-				setTimeout(() => {
-					setChecked(false);
-					gsap.to('.menuFirst', { opacity: 1 });
-					gsap.to('.menuFirst', { webkitFilter: 'blur(0px)' });
-				}, 200);
-			}),
+			gsap.to('.menuFirst', { opacity: 1 }),
+			gsap.to('.menuFirst', { webkitFilter: 'blur(0px)' }),
+			setChecked(false),
 		);
 		showArrowUp();
-		showArrowDown();
 	};
 
 	const showArrowUp = () => {
@@ -216,8 +202,12 @@ const TopFRont = props => {
 			});
 		});
 
+		gsap.to('.innermenu', {
+			width: '100%',
+		});
+
 		gsap.to('.infoblock', {
-			y: '-330%',
+			width: '0%',
 		});
 
 		TweenMax.to('.smallMenuErase', { x: '-100%', opacity: 0 });
@@ -263,7 +253,7 @@ const TopFRont = props => {
 			autoplay: false,
 			animationData: designFront,
 			rendererSettings: {
-				preserveAspectRatio: 'none',
+				preserveAspectRatio: 'xMidYMid meet',
 			},
 		});
 
@@ -328,7 +318,7 @@ const TopFRont = props => {
 				trigger: '#firsty',
 				scrub: true,
 				start: 'top top',
-				endTrigger: '#four',
+				endTrigger: '#three',
 				end: 'bottom bottom',
 				onUpdate: self => {
 					if (obj.duration) {
@@ -403,14 +393,17 @@ const TopFRont = props => {
 		});
 
 		if (window.innerHeight > window.innerWidth) {
+			setShowItBig(true);
+			setShowItSmall(false);
+
 			setShowIt(true);
-			setShowItBig(false);
 			openScroll();
 			TweenMax.to('.innermenu', {
 				backgroundSize: '210%',
 			});
-		} else {
+		} else if (window.innerWidth > window.innerHeight) {
 			setShowItBig(true);
+			setShowItSmall(false);
 			setShowIt(false);
 			gsap.to('.innermenu', {
 				y: '0',
@@ -422,9 +415,11 @@ const TopFRont = props => {
 
 		window.addEventListener('resize', function () {
 			if (window.innerHeight > window.innerWidth) {
-				openScroll();
+				setShowItBig(true);
+				setShowItSmall(false);
+
 				setShowIt(true);
-				setShowItBig(false);
+				openScroll();
 				TweenMax.to('.innermenu', {
 					backgroundSize: '210%',
 				});
@@ -434,6 +429,7 @@ const TopFRont = props => {
 				});
 			} else if (window.innerWidth > window.innerHeight) {
 				setShowItBig(true);
+				setShowItSmall(false);
 				setShowIt(false);
 				gsap.to('.innermenu', {
 					y: '0',
@@ -494,6 +490,15 @@ const TopFRont = props => {
 		// eslint-disable-next-line
 	}, []);
 
+	// useEffect(() => {
+	// 	ScrollTrigger.create({
+	// 		trigger: '#firsty',
+	// 		start: 'top top',
+	// 		pin: true,
+	// 		pinSpacing: false,
+	// 	});
+	// }, []);
+
 	useEffect(() => {
 		if (props.introDone === true) {
 			setTimeout(() => {
@@ -513,11 +518,26 @@ const TopFRont = props => {
 				});
 
 				danBorder2.play();
-				gsap.to('.infoblock', {
-					y: 0,
-					duration: 1,
-					ease: 'back',
+
+				gsap.to('.innermenu', {
 					delay: 3,
+					clearProps: 'all',
+				});
+
+				gsap.to('.infoblock', {
+					delay: 3,
+					clearProps: 'all',
+				});
+
+				gsap.to('.infoblock', {
+					delay: 4,
+					opacity: 1,
+					duration: 0.3,
+				});
+
+				TweenMax.to('body', {
+					overflowY: 'auto',
+					delay: 4,
 				});
 			}, 4000);
 
@@ -638,9 +658,7 @@ const TopFRont = props => {
 				</div>
 
 				<div
-					className={`navMenu smallMenuErase ${
-						showItBig ? 'gone' : `small`
-					}`}
+					className={`navMenu smallMenuErase`}
 					onClick={e => e.stopPropagation()}>
 					<nav className='naver stagger' onClick={openScroll}>
 						<ul>
@@ -713,10 +731,11 @@ const TopFRont = props => {
 				</div>
 				<section className='panel yellow' id='firsty'>
 					<div className='blackBox'></div>
-					<div className={`surround ${showItBig ? `null` : `gone`}`}>
+
+					<div className={`menuFirst ${showItBig ? null : `gone`}`}>
 						<div
-							className={`menuFirst ${
-								showItBig ? null : `gone`
+							className={`surround ${
+								showItBig ? `null` : `gone`
 							}`}>
 							<div
 								className={`innermenu ${
@@ -728,26 +747,30 @@ const TopFRont = props => {
 										menuPop ? 'bigShadowanime' : null
 									}`}></div> */}
 							</div>
-						</div>
-						<div className='infoblock'>
-							<span>Daniel</span>
-							<span>J.H. KIM</span>
-							<span>Portfoilio 2021</span>
-							<span>
-								Toronto . aspiring technologist . cannoli fan .
-								MMA fan{' '}
-							</span>
-							<span>
-								<center>
-									"Personal development is the belief that you
-									are worth the effort, time and energy needed
-									to develop yourself" <br />{' '}
-								</center>
-							</span>
-							<span className='author'>-Denis Waitley</span>
+							<div className='infoblock'>
+								<span>Daniel</span>
+								<span>J.H. KIM</span>
+								<span>Portfoilio 2021</span>
+								<span>
+									Toronto . aspiring technologist . cannoli
+									fan . MMA fan{' '}
+								</span>
+								<span>
+									<center>
+										"Personal development is the belief that
+										you are worth the effort, time and
+										energy needed to develop yourself"{' '}
+										<br />{' '}
+									</center>
+								</span>
+								<span className='author'>-Denis Waitley</span>
+							</div>
 						</div>
 					</div>
-					<div className={`smallScreen ${showItBig ? `gone` : null}`}>
+					<div
+						className={`smallScreen ${
+							showItSmall ? null : `gone`
+						}`}>
 						<div
 							className={`innermenu ${showIt ? `small` : `gone`}`}
 							ref={DesignFrontRefSmall}></div>
@@ -761,10 +784,7 @@ const TopFRont = props => {
 					<Samples />
 				</section>
 				<section className='panel yellow' id='three'>
-					<div className='wrapper'>three</div>
-				</section>
-				<section className='panel black' id='four'>
-					<div className='wrapper'>four</div>
+					<Comment />
 				</section>
 			</div>
 		</main>

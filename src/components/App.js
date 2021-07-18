@@ -55,9 +55,6 @@ const App = () => {
 		TweenMax.to('.animation', 1, { webkitFilter: 'blur(' + 20 + 'px)' });
 		TweenMax.to('.animation', 2, { y: '-100%', ease: 'Power2.easeOut' });
 		setIntroDone(true);
-		TweenMax.to('body', {
-			overflowY: 'auto',
-		});
 	};
 
 	return (

@@ -235,24 +235,37 @@ const Samples = () => {
 		});
 	};
 
+	const stop = e => {
+		e.stopPropagation();
+	};
+
 	return (
 		<div className='samples'>
 			<div className='mainSectionSamples'>
-				<div className='wrapper'>
-					<div className='iconwrapper indent'>
-						<div alt='link' className='link' />
-						<h3
-							className='samplestitle'
-							id='samples'
-							onClick={sampler}>
-							Sample Apps.
-						</h3>
+				<div className='wrapper title centering2'>
+					<div className='iconwrapper'>
+						<div alt='link' className='link goner' />
+						<div className='middletest shifter'>
+							<h3
+								className='samplestitle'
+								id='samples'
+								onClick={sampler}>
+								Sample Apps.
+							</h3>
+						</div>
 						<span className='underline'></span>
 					</div>
 				</div>
 				<div className='bodySample'>
 					<div className='table'>
-						<div className='tablewidth'>
+						<div
+							className='tablewidth'
+							onMouseEnter={e => {
+								stop(e);
+							}}
+							onMouseLeave={e => {
+								stop(e);
+							}}>
 							<a
 								rel='noopener noreferrer'
 								href='https://boring-murdock-102b51.netlify.app'
@@ -263,11 +276,15 @@ const Samples = () => {
 										<div className='serviceBoxInner'>
 											<h2>React Blog Site</h2>
 											<p>
-												Clean, simple blog site that
-												uses Oauth to login to google.
-												Once logged in, you are free to
-												create, delete, edit blogs! This
-												App uses Redux.
+												Simple site that uses Oauth to
+												login to google. Create, delete,
+												edit blogs!
+											</p>
+										</div>
+										<div className='divtags'>
+											<p>
+												Tags: #React #Redux #REST
+												#CSS-Modules
 											</p>
 										</div>
 									</div>
@@ -279,7 +296,32 @@ const Samples = () => {
 							</a>
 							<a
 								rel='noopener noreferrer'
-								href='https://danjhkim.com/Projects/timer/'
+								href='https://vigorous-leakey-1df838.netlify.app'
+								target='_blank'>
+								<div className='column'>
+									<div className='greybox'></div>
+									<div className='serviceBox'>
+										<div className='serviceBoxInner'>
+											<h2>Responsive Design</h2>
+											<p>
+												This barebone's site showcases
+												responsive design, using css and
+												media queries!
+											</p>
+										</div>
+										<div className='divtags'>
+											<p>Tags: #CSS #Responsive #HTML</p>
+										</div>
+									</div>
+									<div className='picture contain'>
+										<img src={gotham} alt='gotham' />
+									</div>
+									<div className='title1'>CSS</div>
+								</div>
+							</a>
+							<a
+								rel='noopener noreferrer'
+								href='https://danjhkim.com/Projects/clocker/'
 								target='_blank'>
 								<div className='column'>
 									<div className='greybox'></div>
@@ -292,7 +334,14 @@ const Samples = () => {
 												times from all over the world.
 											</p>
 										</div>
+										<div className='divtags'>
+											<p>
+												Tags: #CSS #JavaScript #Axios
+												#REST
+											</p>
+										</div>
 									</div>
+
 									<div className='picture contain'>
 										<img src={clock} alt='clockApp' />
 									</div>
@@ -316,6 +365,9 @@ const Samples = () => {
 												patterns for specfic cities.
 											</p>
 										</div>
+										<div className='divtags'>
+											<p>Tags: #React #Axios #REST</p>
+										</div>
 									</div>
 									<div className='picture contain'>
 										<img src={weather} alt='weatherApp' />
@@ -323,30 +375,6 @@ const Samples = () => {
 									<div className='title1'>REST API</div>
 								</div>
 							</a>
-
-							<a
-								rel='noopener noreferrer'
-								href='https://vigorous-leakey-1df838.netlify.app'
-								target='_blank'>
-								<div className='column'>
-									<div className='greybox'></div>
-									<div className='serviceBox'>
-										<div className='serviceBoxInner'>
-											<h2>Respnsive Design</h2>
-											<p>
-												This barebone's site showcases
-												responsive design, using css and
-												media queries!
-											</p>
-										</div>
-									</div>
-									<div className='picture contain'>
-										<img src={gotham} alt='gotham' />
-									</div>
-									<div className='title1'>CSS</div>
-								</div>
-							</a>
-
 							<a
 								rel='noopener noreferrer'
 								href='https://competent-swanson-954803.netlify.app'
@@ -360,6 +388,12 @@ const Samples = () => {
 												Four simple React widgets, that
 												can be used as components for
 												different apps!
+											</p>
+										</div>
+										<div className='divtags'>
+											<p>
+												Tags: #React #JavaScript #Axios
+												#REST
 											</p>
 										</div>
 									</div>
@@ -382,6 +416,12 @@ const Samples = () => {
 											<p>
 												This calculator was created
 												using React and Context API.
+											</p>
+										</div>
+										<div className='divtags'>
+											<p>
+												Tags: #React #JavaScript
+												#Context-API
 											</p>
 										</div>
 									</div>
@@ -407,6 +447,12 @@ const Samples = () => {
 												API.
 											</p>
 										</div>
+										<div className='divtags'>
+											<p>
+												Tags: #React #JavaScript
+												#Context-API
+											</p>
+										</div>
 									</div>
 									<div className='picture contain'>
 										<img src={metro} alt='metro' />
@@ -429,6 +475,9 @@ const Samples = () => {
 												positonal properties with
 												setInterval!
 											</p>
+										</div>
+										<div className='divtags'>
+											<p>Tags: #JavaScript</p>
 										</div>
 									</div>
 									<div className='picture contain'>
